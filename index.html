@@ -15,7 +15,7 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
 .nav-cta { background: var(--yellow); color: var(--dark); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 11px 24px; text-decoration: none; transition: background 0.2s; white-space: nowrap; }
 .nav-cta:hover { background: #e0b800; }
 .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding-top: 70px; text-align: center; }
-.hero-bg { position: absolute; inset: 0; background-image: url("map_banner-1-1024x559.jpeg"); background-size: cover; background-position: center; }background-image: url("image3.jpeg")
+.hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,26,26,0.82) 0%, rgba(26,26,26,0.72) 50%, rgba(26,26,26,0.92) 100%); }
 .hero-content { position: relative; z-index: 2; padding: 60px 32px 80px; max-width: 760px; margin: 0 auto; }
 .hero-badge { display: inline-block; background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; padding: 7px 18px; margin-bottom: 32px; }
@@ -109,10 +109,32 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
   .problem, .packages, .how, .launch, .ai-strip { padding: 60px 20px; }
 }
 </style>
+<script>
+window.onload = function() {
+  var images = {
+    logo: 'image2.png',
+    map: 'image3.jpeg',
+    door: 'image1.jpeg',
+    s1: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2ZmY2QyMSIvPjxwb2x5Z29uIHBvaW50cz0iMTAwLDI4IDE3NSwxMDUgMjUsMTA1IiBmaWxsPSIjMWExYTFhIi8+PHJlY3QgeD0iNTAiIHk9IjEwNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI3MiIgZmlsbD0iIzFhMWExYSIvPjxyZWN0IHg9Ijc4IiB5PSIxMjAiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0NCIgZmlsbD0id2hpdGUiLz48dGV4dCB4PSIxMDAiIHk9IjE1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLEFyaWFsIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjI4IiBmaWxsPSIjMWExYTFhIj4xPC90ZXh0Pjwvc3ZnPg==',
+    s2: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2ZmY2QyMSIvPjxwb2x5Z29uIHBvaW50cz0iMTAwLDI4IDE3NSwxMDUgMjUsMTA1IiBmaWxsPSIjMWExYTFhIi8+PHJlY3QgeD0iNTAiIHk9IjEwNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI3MiIgZmlsbD0iIzFhMWExYSIvPjxyZWN0IHg9Ijc4IiB5PSIxMjAiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0NCIgZmlsbD0id2hpdGUiLz48dGV4dCB4PSIxMDAiIHk9IjE1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLEFyaWFsIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjI4IiBmaWxsPSIjMWExYTFhIj4yPC90ZXh0Pjwvc3ZnPg==',
+    s3: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2ZmY2QyMSIvPjxwb2x5Z29uIHBvaW50cz0iMTAwLDI4IDE3NSwxMDUgMjUsMTA1IiBmaWxsPSIjMWExYTFhIi8+PHJlY3QgeD0iNTAiIHk9IjEwNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI3MiIgZmlsbD0iIzFhMWExYSIvPjxyZWN0IHg9Ijc4IiB5PSIxMjAiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0NCIgZmlsbD0id2hpdGUiLz48dGV4dCB4PSIxMDAiIHk9IjE1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLEFyaWFsIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjI4IiBmaWxsPSIjMWExYTFhIj4zPC90ZXh0Pjwvc3ZnPg==',
+    s4: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2ZmY2QyMSIvPjxwb2x5Z29uIHBvaW50cz0iMTAwLDI4IDE3NSwxMDUgMjUsMTA1IiBmaWxsPSIjMWExYTFhIi8+PHJlY3QgeD0iNTAiIHk9IjEwNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI3MiIgZmlsbD0iIzFhMWExYSIvPjxyZWN0IHg9Ijc4IiB5PSIxMjAiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0NCIgZmlsbD0id2hpdGUiLz48dGV4dCB4PSIxMDAiIHk9IjE1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLEFyaWFsIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjI4IiBmaWxsPSIjMWExYTFhIj40PC90ZXh0Pjwvc3ZnPg=='
+  };
+  document.querySelector('.nav-logo').src = images.logo;
+  document.querySelector('.footer-logo').src = images.logo;
+  document.querySelector('.hero-bg').style.backgroundImage = 'url(' + images.map + ')';
+  document.querySelector('.problem-image img').src = images.door;
+  var steps = document.querySelectorAll('.step-img');
+  steps[0].src = images.s1;
+  steps[1].src = images.s2;
+  steps[2].src = images.s3;
+  steps[3].src = images.s4;
+};
+</script>
 </head>
 <body>
   <nav class="nav">
-    <img class="nav-logo" src="image2.jpeg_logo.png" alt="Let by Me">
+    <img class="nav-logo" src="" alt="Let by Me">
     <a href="#register" class="nav-cta">Register Interest</a>
   </nav>
   
@@ -127,7 +149,7 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
         No inflated agent fees. No outdated portals. Just honest, intelligent lettings &mdash; built for the way people actually rent today.
       </p>
       <div class="hero-ai-note">
-        ⚡ <span>AI-powered matching</span> &mdash; putting the right tenants in front of the right properties
+        &#127968; <span>AI-powered matching</span> &mdash; putting the right tenants in front of the right properties
       </div>
       <form class="signup-form" action="https://letbyme.us11.list-manage.com/subscribe/post?u=66b2dc0cd693e0d982a9acf8d&id=004bebe1f0" method="post" target="_blank">
         <input type="email" name="EMAIL" placeholder="Your email address" required>
@@ -158,7 +180,7 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
         <p>Let by Me changes that. Powered by AI, built on transparency, and designed to be genuinely simple &mdash; for everyone.</p>
       </div>
       <div class="problem-image">
-        <img src="image1.jpeg-2.jpeg" alt="Opening doors to landlords and tenants">
+        <img src="" alt="Opening doors to landlords and tenants">
       </div>
     </div>
   </section>
@@ -168,11 +190,11 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
       <h2>Not just a listings portal. An intelligent platform <span>bringing Landlords and Tenants Together.</span></h2>
       <p>While others simply list properties, Let by Me learns. Our AI matches tenants to the right properties, helps landlords write better listings, suggests accurate pricing, and automates promotion &mdash; so the right people find each other faster.</p>
       <div class="ai-pills">
-        <div class="ai-pill">⚡ AI Tenant Matching</div>
-        <div class="ai-pill">⚡ Smart Listing Assistant</div>
-        <div class="ai-pill">⚡ Automated Social Promotion</div>
-        <div class="ai-pill">⚡ Intelligent Price Guidance</div>
-        <div class="ai-pill">⚡ Secure Direct Messaging</div>
+        <div class="ai-pill">&#127968; AI Tenant Matching</div>
+        <div class="ai-pill">&#127968; Smart Listing Assistant</div>
+        <div class="ai-pill">&#127968; Automated Social Promotion</div>
+        <div class="ai-pill">&#127968; Intelligent Price Guidance</div>
+        <div class="ai-pill">&#127968; Secure Direct Messaging</div>
       </div>
     </div>
   </div>
@@ -222,22 +244,22 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
       </div>
       <div class="steps">
         <div class="step">
-          <img class="step-img" src="STEP1HERE" alt="Step 1">
+          <img class="step-img" src="" alt="Step 1">
           <h3>Create Your Account</h3>
           <p>Sign up in minutes. No credit card. No commitment required.</p>
         </div>
         <div class="step">
-          <img class="step-img" src="STEP2HERE" alt="Step 2">
+          <img class="step-img" src="" alt="Step 2">
           <h3>List Your Property</h3>
           <p>Add photos and details. Our AI assistant helps write your listing.</p>
         </div>
         <div class="step">
-          <img class="step-img" src="STEP3HERE" alt="Step 3">
+          <img class="step-img" src="" alt="Step 3">
           <h3>Connect With Tenants</h3>
           <p>Tenants message you directly through our secure private platform.</p>
         </div>
         <div class="step">
-          <img class="step-img" src="STEP4HERE" alt="Step 4">
+          <img class="step-img" src="" alt="Step 4">
           <h3>Let Your Property</h3>
           <p>Agree terms and you're done. No agent. No middleman. Just results.</p>
         </div>
@@ -268,7 +290,7 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
   </section>
   
   <footer class="footer">
-    <img class="footer-logo" src="image2.jpeg_logo.png" alt="Let by Me">
+    <img class="footer-logo" src="" alt="Let by Me">
     <div class="footer-copy">
       &copy; 2025 Let by Me &nbsp;&middot;&nbsp; Opening Doors To Landlords &amp; Tenants &nbsp;&middot;&nbsp; Built in the UK<br>
       <span style="font-size:11px;opacity:0.6;">AI-powered online lettings &nbsp;&middot;&nbsp; Online letting made easy</span>

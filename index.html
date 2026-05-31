@@ -48,11 +48,15 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
     }
 
-    .nav-logo img { height: 32px; width: auto; }
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
 
     .nav-logo-text {
       font-size: 1.1rem;
@@ -446,7 +450,16 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 24px;
-      font-size: 1.4rem;
+    }
+
+    .why-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--yellow);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .why-card-title {
@@ -552,25 +565,53 @@
       margin-top: 60px;
     }
 
+    /* LEFT CARD — yellow background */
     .pricing-card {
-      background: var(--dark2);
       padding: 48px 40px;
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
 
-    .pricing-card.featured { background: var(--yellow); }
+    .pricing-card.free-card {
+      background: var(--yellow);
+    }
 
-    .pricing-card.featured .pricing-price,
-    .pricing-card.featured .pricing-title,
-    .pricing-card.featured .pricing-desc,
-    .pricing-card.featured .pricing-feature { color: var(--black); }
+    .pricing-card.free-card .pricing-title,
+    .pricing-card.free-card .pricing-price,
+    .pricing-card.free-card .pricing-period,
+    .pricing-card.free-card .pricing-desc,
+    .pricing-card.free-card .pricing-feature { color: var(--black); }
 
-    .pricing-card.featured .pricing-feature-icon { color: var(--black); }
+    .pricing-card.free-card .pricing-feature-icon { color: var(--black); }
+
+    .pricing-card.free-card .pricing-desc {
+      border-bottom-color: rgba(0,0,0,0.15);
+    }
+
+    .pricing-card.free-card .pricing-period { color: rgba(0,0,0,0.55); }
+
+    /* RIGHT CARD — dark background */
+    .pricing-card.paid-card {
+      background: var(--dark2);
+    }
+
+    .pricing-card.paid-card .pricing-title,
+    .pricing-card.paid-card .pricing-price,
+    .pricing-card.paid-card .pricing-feature { color: var(--white); }
+
+    .pricing-card.paid-card .pricing-period { color: rgba(255,255,255,0.4); }
+
+    .pricing-card.paid-card .pricing-desc {
+      color: rgba(255,255,255,0.5);
+      border-bottom-color: rgba(255,255,255,0.08);
+    }
+
+    .pricing-card.paid-card .pricing-feature { color: rgba(255,255,255,0.8); }
+    .pricing-card.paid-card .pricing-feature-icon { color: var(--yellow); }
 
     .pricing-badge {
       display: inline-block;
-      background: var(--black);
-      color: var(--yellow);
       font-size: 0.68rem;
       font-weight: 800;
       letter-spacing: 0.1em;
@@ -578,9 +619,15 @@
       padding: 5px 14px;
       border-radius: 100px;
       margin-bottom: 24px;
+      width: fit-content;
     }
 
-    .pricing-card:not(.featured) .pricing-badge {
+    .free-card .pricing-badge {
+      background: var(--black);
+      color: var(--yellow);
+    }
+
+    .paid-card .pricing-badge {
       background: var(--yellow);
       color: var(--black);
     }
@@ -588,7 +635,6 @@
     .pricing-title {
       font-size: 1.4rem;
       font-weight: 800;
-      color: var(--white);
       letter-spacing: -0.02em;
       margin-bottom: 8px;
     }
@@ -596,7 +642,6 @@
     .pricing-price {
       font-size: 3rem;
       font-weight: 900;
-      color: var(--white);
       letter-spacing: -0.04em;
       line-height: 1;
       margin-bottom: 4px;
@@ -610,36 +655,39 @@
 
     .pricing-period {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
       margin-bottom: 6px;
     }
 
-    .pricing-card.featured .pricing-period { color: rgba(0,0,0,0.5); }
-
     .pricing-desc {
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
       line-height: 1.6;
       margin-bottom: 32px;
       padding-bottom: 32px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid;
     }
 
-    .pricing-card.featured .pricing-desc { border-bottom-color: rgba(0,0,0,0.12); }
-
-    .pricing-features { list-style: none; margin-bottom: 36px; }
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 36px;
+      flex: 1;
+    }
 
     .pricing-feature {
       display: flex;
       align-items: flex-start;
       gap: 12px;
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
       padding: 8px 0;
     }
 
-    .pricing-feature-icon { color: var(--yellow); flex-shrink: 0; margin-top: 1px; font-style: normal; }
+    .pricing-feature-icon {
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-style: normal;
+      font-weight: 700;
+    }
 
+    /* BUTTONS — aligned at bottom */
     .pricing-btn {
       width: 100%;
       padding: 16px;
@@ -654,26 +702,24 @@
       text-align: center;
       text-decoration: none;
       display: block;
+      margin-top: auto;
     }
 
-    .pricing-card:not(.featured) .pricing-btn {
-      background: transparent;
-      border: 1.5px solid rgba(255,255,255,0.2);
-      color: var(--white);
-    }
-
-    .pricing-card:not(.featured) .pricing-btn:hover {
-      border-color: var(--yellow);
-      color: var(--yellow);
-    }
-
-    .pricing-card.featured .pricing-btn {
+    .free-card .pricing-btn {
       background: var(--black);
       border: none;
       color: var(--yellow);
     }
 
-    .pricing-card.featured .pricing-btn:hover { background: var(--dark2); }
+    .free-card .pricing-btn:hover { background: #222; }
+
+    .paid-card .pricing-btn {
+      background: var(--yellow);
+      border: none;
+      color: var(--black);
+    }
+
+    .paid-card .pricing-btn:hover { background: var(--yellow-dark); }
 
     /* SIGNUP */
     .signup-section { background: var(--dark); }
@@ -800,11 +846,7 @@
       margin-bottom: 20px;
     }
 
-    .footer-email {
-      font-size: 0.82rem;
-      color: var(--yellow);
-      text-decoration: none;
-    }
+    .footer-email { font-size: 0.82rem; color: var(--yellow); text-decoration: none; }
 
     .footer-col-title {
       font-size: 0.7rem;
@@ -835,7 +877,6 @@
     }
 
     .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
-
     .footer-legal { display: flex; gap: 24px; }
 
     .footer-legal a {
@@ -874,10 +915,14 @@
   </style>
 </head>
 <body>
-<!-- NAV -->
+  <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <img src="image2.png" alt="Let by Me" onerror="this.style.display='none'" />
+      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="8" fill="#1a1a1a"/>
+        <path d="M18 8L6 18H9V28H16V22H20V28H27V18H30L18 8Z" fill="#F5C518"/>
+        <rect x="15" y="22" width="6" height="6" rx="1" fill="#111111"/>
+      </svg>
       <span class="nav-logo-text">Let by <span>Me</span></span>
     </a>
     <a href="#signup" class="nav-cta">List Free Today</a>
@@ -918,7 +963,6 @@
         </div>
       </div>
 
-      <!-- Signup Card -->
       <div class="hero-card fade-up" style="transition-delay:0.15s">
         <div class="hero-card-title">Start For Free</div>
         <div class="hero-card-sub">No card required. <span>Free 2-week listing, always.</span></div>
@@ -947,27 +991,19 @@
   <!-- TRUST BAR -->
   <div class="trust-bar">
     <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
       Free 2 Week Listing
     </div>
     <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
       No Card Required
     </div>
     <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
       Zero Hidden Costs
     </div>
     <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
       AI-Powered Matching
     </div>
   </div>
@@ -979,42 +1015,61 @@
       <h2 class="section-h2 fade-up">The property market<br>is broken. We're fixing it.</h2>
       <p class="section-lead fade-up">Traditional letting agents charge landlords up to 15% and leave tenants drowning in admin fees. There is a better way — and it starts free.</p>
       <div class="why-grid">
+
         <div class="why-card fade-up">
-          <div class="why-icon">🆓</div>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" stroke="none" fill="#F5C518"/><circle cx="12" cy="12" r="10" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M8 11l4-4 4 4M12 7v10" stroke="#F5C518" stroke-width="1.8" fill="none"/></svg>
+          </div>
           <div class="why-card-title">Free to List</div>
           <div class="why-card-text">Get your property live for two full weeks completely free. No card details, no trial period nonsense — just genuine no-cost advertising.</div>
           <span class="why-card-tag">No Card Required</span>
         </div>
+
         <div class="why-card fade-up" style="transition-delay:0.1s">
-          <div class="why-icon">📣</div>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z" stroke="#F5C518" stroke-width="1.8" fill="none"/></svg>
+          </div>
           <div class="why-card-title">£29.99 Boosted Reach</div>
           <div class="why-card-text">Want more eyes on your property? One flat fee gets you 8 weeks of targeted advertising across social media and Google Ads. That's it.</div>
           <span class="why-card-tag">8 Weeks Advertised</span>
         </div>
+
         <div class="why-card fade-up" style="transition-delay:0.2s">
-          <div class="why-icon">🤖</div>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" stroke="#F5C518" stroke-width="1.8"/></svg>
+          </div>
           <div class="why-card-title">AI Tenant Matching</div>
           <div class="why-card-text">Our platform matches your property to the right tenants faster and more accurately than any high street agent — without the fee.</div>
           <span class="why-card-tag">Powered by AI</span>
         </div>
+
         <div class="why-card fade-up" style="transition-delay:0.3s">
-          <div class="why-icon">💷</div>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M2 10h20" stroke="#F5C518" stroke-width="1.8"/><path d="M6 15h4M14 15h4" stroke="#F5C518" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
           <div class="why-card-title">Zero Hidden Costs</div>
-          <div class="why-card-text">What you see is what you pay. Free listing or £29.99 boosted. There are no renewal fees, no percentage cuts, and no small print surprises.</div>
+          <div class="why-card-text">What you see is what you pay. Free listing or £29.99 boosted. No renewal fees, no percentage cuts, no small print surprises.</div>
           <span class="why-card-tag">Totally Transparent</span>
         </div>
+
         <div class="why-card fade-up" style="transition-delay:0.4s">
-          <div class="why-icon">🔍</div>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="#F5C518" stroke-width="1.8" fill="none"/><circle cx="12" cy="7" r="4" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M16 11l2 2 4-4" stroke="#F5C518" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
           <div class="why-card-title">Verified Tenants Only</div>
           <div class="why-card-text">Every applicant is verified. Review employment, references, and credit history before you even consider booking a viewing.</div>
           <span class="why-card-tag">Verified</span>
         </div>
+
         <div class="why-card fade-up" style="transition-delay:0.5s">
-          <div class="why-icon">📱</div>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M9 7h6M9 11h6M9 15h4" stroke="#F5C518" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
           <div class="why-card-title">Manage Everything Online</div>
           <div class="why-card-text">Tenancy agreements, maintenance requests, rent tracking — all in one place, on your phone or laptop, any time you need it.</div>
           <span class="why-card-tag">All in One Place</span>
         </div>
+
       </div>
     </div>
   </section>
@@ -1084,7 +1139,7 @@
       <p class="section-lead fade-up">No percentage cuts. No add-ons you didn't ask for. Just two clear options — one of which is completely free.</p>
       <div class="pricing-grid">
 
-        <div class="pricing-card fade-up">
+        <div class="pricing-card free-card fade-up">
           <div class="pricing-badge">Free — No Card Required</div>
           <div class="pricing-title">Online Now</div>
           <div class="pricing-price">FREE</div>
@@ -1100,7 +1155,7 @@
           <a href="#signup" class="pricing-btn">List For Free →</a>
         </div>
 
-        <div class="pricing-card featured fade-up" style="transition-delay:0.15s">
+        <div class="pricing-card paid-card fade-up" style="transition-delay:0.15s">
           <div class="pricing-badge">Maximum Exposure</div>
           <div class="pricing-title">Agent Now</div>
           <div class="pricing-price"><sup>£</sup>29<span style="font-size:1.6rem;font-weight:900">.99</span></div>
@@ -1126,7 +1181,7 @@
     <div class="signup-inner">
       <span class="section-label fade-up">Join the Waitlist</span>
       <h2 class="section-h2 fade-up">Be first through the door.</h2>
-      <p class="section-lead fade-up">We're launching soon. Join now for early access, and a platform that's genuinely on your side — starting completely free.</p>
+      <p class="section-lead fade-up">We're launching soon. Join now for early access and a platform that's genuinely on your side — starting completely free.</p>
       <div class="signup-tabs">
         <button class="signup-tab active" onclick="setSignupType(this, 'LANDLORD')">I'm a Landlord</button>
         <button class="signup-tab" onclick="setSignupType(this, 'TENANT')">I'm a Tenant</button>

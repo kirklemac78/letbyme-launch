@@ -1,293 +1,1229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Let by Me — Launching Soon</title>
-<meta name="description" content="AI-powered lettings platform connecting landlords and tenants directly. List free for two weeks. Launching soon.">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --yellow: #ffcd21; --dark: #1a1a1a; --white: #ffffff; --font: "Trebuchet MS", Arial, sans-serif; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--font); color: var(--white); background: var(--dark); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,26,26,0.96); backdrop-filter: blur(10px); border-bottom: 3px solid var(--yellow); padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { height: 52px; width: auto; display: block; }
-.nav-cta { background: var(--yellow); color: var(--dark); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 11px 24px; text-decoration: none; transition: background 0.2s; white-space: nowrap; }
-.nav-cta:hover { background: #e0b800; }
-.hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding-top: 70px; text-align: center; }
-.hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,26,26,0.82) 0%, rgba(26,26,26,0.72) 50%, rgba(26,26,26,0.92) 100%); }
-.hero-content { position: relative; z-index: 2; padding: 60px 32px 80px; max-width: 760px; margin: 0 auto; }
-.hero-badge { display: inline-block; background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; padding: 7px 18px; margin-bottom: 32px; }
-.hero h1 { font-size: clamp(38px, 6vw, 68px); font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 20px; }
-.hero h1 em { color: var(--yellow); font-style: normal; }
-.hero-strapline { font-size: clamp(16px, 2vw, 19px); color: rgba(255,255,255,0.78); line-height: 1.7; margin-bottom: 16px; max-width: 580px; margin-left: auto; margin-right: auto; }
-.hero-strapline strong { color: var(--white); }
-.hero-ai-note { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,205,33,0.12); border: 1px solid rgba(255,205,33,0.3); padding: 8px 18px; margin-bottom: 36px; font-size: 13px; color: rgba(255,255,255,0.7); }
-.hero-ai-note span { color: var(--yellow); font-weight: 700; }
-.signup-form { display: flex; flex-direction: column; gap: 10px; max-width: 480px; margin: 0 auto 16px; }
-.signup-form input[type="email"] { height: 56px; border: none; background: rgba(255,255,255,0.95); padding: 0 20px; font-family: var(--font); font-size: 15px; color: var(--dark); outline: none; width: 100%; }
-.signup-form input[type="email"]:focus { background: #fff; outline: 3px solid var(--yellow); }
-.signup-form input[type="email"]::placeholder { color: #999; }
-.signup-form select { height: 56px; border: none; background: rgba(255,255,255,0.95); padding: 0 20px; font-family: var(--font); font-size: 15px; color: var(--dark); -webkit-appearance: none; cursor: pointer; width: 100%; outline: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23ffcd21' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 18px center; background-color: rgba(255,255,255,0.95); }
-.signup-btn { height: 56px; background: var(--yellow); color: var(--dark); font-family: var(--font); font-size: 15px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; width: 100%; }
-.signup-btn:hover { background: #e0b800; }
-.form-note { font-size: 12px; color: rgba(255,255,255,0.35); text-align: center; }
-.form-note span { color: var(--yellow); }
-.stats-bar { background: var(--yellow); display: grid; grid-template-columns: repeat(4, 1fr); }
-.stat { text-align: center; padding: 28px 16px; border-right: 1px solid rgba(0,0,0,0.12); }
-.stat:last-child { border-right: none; }
-.stat-number { font-size: clamp(20px, 3vw, 36px); font-weight: 900; color: var(--dark); line-height: 1; margin-bottom: 6px; }
-.stat-label { font-size: 11px; font-weight: 700; color: rgba(0,0,0,0.55); letter-spacing: 1px; text-transform: uppercase; }
-.problem { background: var(--dark); padding: 90px 32px; }
-.problem-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.section-tag { font-size: 11px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--yellow); margin-bottom: 20px; display: block; }
-.problem h2 { font-size: clamp(26px, 4vw, 44px); font-weight: 900; line-height: 1.15; color: var(--white); margin-bottom: 24px; }
-.problem h2 span { color: var(--yellow); }
-.problem p { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.9; margin-bottom: 16px; }
-.problem-image { background: #111; padding: 48px; display: flex; align-items: center; justify-content: center; min-height: 380px; }
-.problem-image img { width: 100%; max-width: 300px; height: auto; object-fit: contain; display: block; }
-.ai-strip { background: #0d0d0d; padding: 64px 32px; border-top: 1px solid #222; border-bottom: 1px solid #222; }
-.ai-strip-inner { max-width: 900px; margin: 0 auto; text-align: center; }
-.ai-strip h2 { font-size: clamp(22px, 3.5vw, 38px); font-weight: 900; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
-.ai-strip h2 span { color: var(--yellow); }
-.ai-strip p { font-size: 17px; color: rgba(255,255,255,0.5); max-width: 640px; margin: 0 auto; line-height: 1.8; }
-.ai-pills { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
-.ai-pill { background: rgba(255,205,33,0.1); border: 1px solid rgba(255,205,33,0.25); color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600; padding: 8px 20px; }
-.packages { background: #0f0f0f; padding: 90px 32px; }
-.packages-inner { max-width: 880px; margin: 0 auto; }
-.packages-header { text-align: center; margin-bottom: 56px; }
-.packages-header h2 { font-size: clamp(26px, 4vw, 44px); font-weight: 900; color: var(--white); margin-bottom: 14px; line-height: 1.15; }
-.packages-header h2 span { color: var(--yellow); }
-.packages-header p { font-size: 17px; color: rgba(255,255,255,0.45); max-width: 520px; margin: 0 auto; line-height: 1.7; }
-.packages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: #2a2a2a; }
-.pkg { background: #1a1a1a; padding: 48px 36px 44px; text-align: center; position: relative; }
-.pkg-ribbon { position: absolute; top: 0; left: 50%; transform: translateX(-50%); background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; padding: 6px 20px; white-space: nowrap; }
-.pkg-name { font-size: 11px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; color: var(--yellow); margin-bottom: 20px; margin-top: 30px; }
-.pkg-price { font-size: 76px; font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 8px; letter-spacing: -2px; }
-.pkg-price-note { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 36px; }
-.pkg-features { list-style: none; text-align: left; }
-.pkg-features li { font-size: 14px; color: rgba(255,255,255,0.7); padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: flex-start; gap: 12px; line-height: 1.5; }
-.pkg-features li:last-child { border-bottom: none; }
-.pkg-features li::before { content: '✓'; color: var(--yellow); font-weight: 900; font-size: 15px; flex-shrink: 0; margin-top: 1px; }
-.how { background: var(--yellow); padding: 90px 32px; }
-.how-inner { max-width: 980px; margin: 0 auto; }
-.how-header { text-align: center; margin-bottom: 60px; }
-.how-header h2 { font-size: clamp(26px, 4vw, 44px); font-weight: 900; color: var(--dark); margin-bottom: 12px; }
-.how-header p { font-size: 17px; color: rgba(0,0,0,0.55); }
-.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-.step { text-align: center; }
-.step-img { width: 130px; height: 130px; margin: 0 auto 20px; display: block; }
-.step h3 { font-size: 16px; font-weight: 800; color: var(--dark); margin-bottom: 10px; line-height: 1.3; }
-.step p { font-size: 14px; color: rgba(0,0,0,0.6); line-height: 1.7; }
-.launch { background: var(--dark); padding: 90px 32px; border-top: 3px solid var(--yellow); text-align: center; }
-.launch-inner { max-width: 640px; margin: 0 auto; }
-.launch h2 { font-size: clamp(30px, 5vw, 54px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 16px; }
-.launch h2 span { color: var(--yellow); }
-.launch-intro { font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 40px; }
-.launch-offer { background: #111; border: 2px solid var(--yellow); padding: 36px 32px; margin-bottom: 40px; text-align: left; }
-.launch-offer-tag { font-size: 11px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; display: block; }
-.launch-offer h3 { font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 12px; line-height: 1.3; }
-.launch-offer p { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7; }
-.footer { background: #0a0a0a; padding: 40px 32px; text-align: center; border-top: 1px solid #1a1a1a; }
-.footer-logo { height: 44px; width: auto; margin-bottom: 18px; display: inline-block; }
-.footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); line-height: 2; }
-@media (max-width: 768px) {
-  .nav { padding: 12px 20px; }
-  .nav-logo { height: 40px; }
-  .hero-content { padding: 40px 20px 60px; }
-  .stats-bar { grid-template-columns: 1fr 1fr; }
-  .stat { border-bottom: 1px solid rgba(0,0,0,0.12); }
-  .stat:nth-child(odd) { border-right: 1px solid rgba(0,0,0,0.12); }
-  .stat:nth-child(even) { border-right: none; }
-  .problem-inner { grid-template-columns: 1fr; gap: 40px; }
-  .problem-image { min-height: 260px; padding: 32px; }
-  .packages-grid { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .step-img { width: 100px; height: 100px; }
-  .pkg { padding: 44px 22px; }
-  .pkg-price { font-size: 60px; }
-  .problem, .packages, .how, .launch, .ai-strip { padding: 60px 20px; }
-}
-</style>
-<script>
-window.onload = function() {
-  document.querySelector('.nav-logo').src = 'image2.png';
-  document.querySelector('.footer-logo').src = 'image2.png';
-  document.querySelector('.hero-bg').style.backgroundImage = 'url(image3.jpeg)';
-  document.querySelector('.problem-image img').src = 'image1.jpeg';
-  var steps = document.querySelectorAll('.step-img');
-  steps[0].src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2ZmY2QyMSIvPjxwb2x5Z29uIHBvaW50cz0iMTAwLDI4IDE3NSwxMDUgMjUsMTA1IiBmaWxsPSIjMWExYTFhIi8+PHJlY3QgeD0iNTAiIHk9IjEwNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI3MiIgZmlsbD0iIzFhMWExYSIvPjxyZWN0IHg9Ijc4IiB5PSIxMjAiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0NCIgZmlsbD0id2hpdGUiLz48dGV4dCB4PSIxMDAiIHk9IjE1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLEFyaWFsIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjI4IiBmaWxsPSIjMWExYTFhIj4xPC90ZXh0Pjwvc3ZnPg==';
-  steps[1].src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2ZmY2QyMSIvPjxwb2x5Z29uIHBvaW50cz0iMTAwLDI4IDE3NSwxMDUgMjUsMTA1IiBmaWxsPSIjMWExYTFhIi8+PHJlY3QgeD0iNTAiIHk9IjEwNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI3MiIgZmlsbD0iIzFhMWExYSIvPjxyZWN0IHg9Ijc4IiB5PSIxMjAiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0NCIgZmlsbD0id2hpdGUiLz48dGV4dCB4PSIxMDAiIHk9IjE1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLEFyaWFsIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjI4IiBmaWxsPSIjMWExYTFhIj4yPC90ZXh0Pjwvc3ZnPg==';
-  steps[2].src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2ZmY2QyMSIvPjxwb2x5Z29uIHBvaW50cz0iMTAwLDI4IDE3NSwxMDUgMjUsMTA1IiBmaWxsPSIjMWExYTFhIi8+PHJlY3QgeD0iNTAiIHk9IjEwNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI3MiIgZmlsbD0iIzFhMWExYSIvPjxyZWN0IHg9Ijc4IiB5PSIxMjAiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0NCIgZmlsbD0id2hpdGUiLz48dGV4dCB4PSIxMDAiIHk9IjE1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLEFyaWFsIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjI4IiBmaWxsPSIjMWExYTFhIj4zPC90ZXh0Pjwvc3ZnPg==';
-  steps[3].src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2ZmY2QyMSIvPjxwb2x5Z29uIHBvaW50cz0iMTAwLDI4IDE3NSwxMDUgMjUsMTA1IiBmaWxsPSIjMWExYTFhIi8+PHJlY3QgeD0iNTAiIHk9IjEwNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI3MiIgZmlsbD0iIzFhMWExYSIvPjxyZWN0IHg9Ijc4IiB5PSIxMjAiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0NCIgZmlsbD0id2hpdGUiLz48dGV4dCB4PSIxMDAiIHk9IjE1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLEFyaWFsIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjI4IiBmaWxsPSIjMWExYTFhIj40PC90ZXh0Pjwvc3ZnPg==';
-};
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Let by Me – Residential Lettings, Reimagined</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow: #F5C518;
+      --yellow-dark: #d4a90e;
+      --black: #111111;
+      --dark: #1a1a1a;
+      --dark2: #222222;
+      --white: #ffffff;
+      --grey: #888888;
+      --text-muted: #aaaaaa;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(17,17,17,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245,197,24,0.15);
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img { height: 32px; width: auto; }
+
+    .nav-logo-text {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo-text span { color: var(--yellow); }
+
+    .nav-cta {
+      background: var(--yellow);
+      color: var(--black);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .nav-cta:hover { background: var(--yellow-dark); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 64px;
+    }
+
+    .hero-map-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('image3.jpeg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.25) saturate(1.4);
+      z-index: 0;
+    }
+
+    .hero-map-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 50%, rgba(245,197,24,0.08) 0%, transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,197,24,0.12);
+      border: 1px solid rgba(245,197,24,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 28px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--yellow);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero-h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .hero-h1 .accent { color: var(--yellow); }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 40px;
+      max-width: 460px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--black);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(245,197,24,0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--yellow-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(245,197,24,0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 15px 32px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--yellow);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+    }
+
+    /* HERO CARD */
+    .hero-card {
+      background: rgba(17,17,17,0.92);
+      border: 1px solid rgba(245,197,24,0.2);
+      border-radius: 12px;
+      padding: 40px 36px;
+      backdrop-filter: blur(20px);
+    }
+
+    .hero-card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-card-sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .hero-card-sub span { color: var(--yellow); font-weight: 600; }
+
+    .form-group { margin-bottom: 14px; }
+
+    .form-group input {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 14px 18px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input::placeholder { color: rgba(255,255,255,0.3); }
+    .form-group input:focus { border-color: var(--yellow); }
+
+    .form-select-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .type-btn {
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .type-btn.active, .type-btn:hover {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: var(--black);
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--yellow);
+      color: var(--black);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .form-submit:hover { background: var(--yellow-dark); transform: translateY(-1px); }
+
+    .form-privacy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--yellow);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .trust-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* SECTIONS */
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 24px;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .section-h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .section-lead {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 60px;
+    }
+
+    /* WHY SECTION */
+    .why-section { background: var(--dark); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .why-card {
+      background: var(--dark2);
+      padding: 40px 36px;
+      transition: background 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--yellow);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .why-card:hover::before { transform: scaleX(1); }
+    .why-card:hover { background: #272727; }
+
+    .why-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(245,197,24,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 1.4rem;
+    }
+
+    .why-card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .why-card-text {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+    }
+
+    .why-card-tag {
+      display: inline-block;
+      margin-top: 16px;
+      background: rgba(245,197,24,0.1);
+      border: 1px solid rgba(245,197,24,0.2);
+      color: var(--yellow);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* HOW IT WORKS */
+    .how-section { background: var(--yellow); color: var(--black); }
+    .how-section .section-label { color: rgba(0,0,0,0.5); }
+    .how-section .section-h2 { color: var(--black); }
+    .how-section .section-lead { color: rgba(0,0,0,0.6); }
+
+    .how-tabs {
+      display: inline-flex;
+      gap: 0;
+      margin-bottom: 60px;
+      background: rgba(0,0,0,0.08);
+      border-radius: 6px;
+      padding: 4px;
+    }
+
+    .how-tab {
+      padding: 12px 32px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: none;
+      background: transparent;
+      color: rgba(0,0,0,0.5);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .how-tab.active { background: var(--black); color: var(--yellow); }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+    }
+
+    .how-step-num {
+      width: 56px;
+      height: 56px;
+      background: var(--black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--yellow);
+      margin-bottom: 20px;
+    }
+
+    .how-step-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+
+    .how-step-text {
+      font-size: 0.85rem;
+      color: rgba(0,0,0,0.6);
+      line-height: 1.65;
+    }
+
+    /* PRICING */
+    .pricing-section { background: var(--black); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .pricing-card {
+      background: var(--dark2);
+      padding: 48px 40px;
+      position: relative;
+    }
+
+    .pricing-card.featured { background: var(--yellow); }
+
+    .pricing-card.featured .pricing-price,
+    .pricing-card.featured .pricing-title,
+    .pricing-card.featured .pricing-desc,
+    .pricing-card.featured .pricing-feature { color: var(--black); }
+
+    .pricing-card.featured .pricing-feature-icon { color: var(--black); }
+
+    .pricing-badge {
+      display: inline-block;
+      background: var(--black);
+      color: var(--yellow);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .pricing-card:not(.featured) .pricing-badge {
+      background: var(--yellow);
+      color: var(--black);
+    }
+
+    .pricing-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .pricing-price {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pricing-price sup {
+      font-size: 1.4rem;
+      font-weight: 700;
+      vertical-align: super;
+    }
+
+    .pricing-period {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 6px;
+    }
+
+    .pricing-card.featured .pricing-period { color: rgba(0,0,0,0.5); }
+
+    .pricing-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .pricing-card.featured .pricing-desc { border-bottom-color: rgba(0,0,0,0.12); }
+
+    .pricing-features { list-style: none; margin-bottom: 36px; }
+
+    .pricing-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      padding: 8px 0;
+    }
+
+    .pricing-feature-icon { color: var(--yellow); flex-shrink: 0; margin-top: 1px; font-style: normal; }
+
+    .pricing-btn {
+      width: 100%;
+      padding: 16px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+    }
+
+    .pricing-card:not(.featured) .pricing-btn {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      color: var(--white);
+    }
+
+    .pricing-card:not(.featured) .pricing-btn:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    .pricing-card.featured .pricing-btn {
+      background: var(--black);
+      border: none;
+      color: var(--yellow);
+    }
+
+    .pricing-card.featured .pricing-btn:hover { background: var(--dark2); }
+
+    /* SIGNUP */
+    .signup-section { background: var(--dark); }
+
+    .signup-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 100px 24px;
+      text-align: center;
+    }
+
+    .signup-inner .section-label { display: block; text-align: center; }
+    .signup-inner .section-h2 { margin-bottom: 16px; }
+    .signup-inner .section-lead { margin: 0 auto 48px; text-align: center; }
+
+    .signup-tabs {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .signup-tab {
+      padding: 10px 28px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      cursor: pointer;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background: transparent;
+      color: rgba(255,255,255,0.4);
+      transition: all 0.2s;
+    }
+
+    .signup-tab.active {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: var(--black);
+    }
+
+    .mc-form {
+      display: flex;
+      gap: 0;
+      max-width: 480px;
+      margin: 0 auto 16px;
+    }
+
+    .mc-form input[type="email"] {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+      padding: 16px 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .mc-form input[type="email"]::placeholder { color: rgba(255,255,255,0.3); }
+    .mc-form input[type="email"]:focus { border-color: var(--yellow); }
+
+    .mc-form button {
+      background: var(--yellow);
+      color: var(--black);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .mc-form button:hover { background: var(--yellow-dark); }
+
+    .signup-note {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 60px 24px 40px;
+    }
+
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand-text {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-text span { color: var(--yellow); }
+
+    .footer-tagline {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .footer-email {
+      font-size: 0.82rem;
+      color: var(--yellow);
+      text-decoration: none;
+    }
+
+    .footer-col-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 16px;
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--yellow); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+
+    .footer-legal { display: flex; gap: 24px; }
+
+    .footer-legal a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover { color: var(--yellow); }
+
+    /* ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px; }
+      .hero-card { padding: 28px 22px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .trust-bar { gap: 20px; }
+      .mc-form { flex-direction: column; }
+      .mc-form input[type="email"] { border-right: 1.5px solid rgba(255,255,255,0.12); border-radius: 4px; }
+      .mc-form button { border-radius: 4px; width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-top { grid-template-columns: 1fr; }
+      .hero-stats { gap: 20px; }
+    }
+  </style>
 </head>
 <body>
-  <nav class="nav">
-    <img class="nav-logo" src="" alt="Let by Me">
-    <a href="#register" class="nav-cta">Register Interest</a>
+<!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="image2.png" alt="Let by Me" onerror="this.style.display='none'" />
+      <span class="nav-logo-text">Let by <span>Me</span></span>
+    </a>
+    <a href="#signup" class="nav-cta">List Free Today</a>
   </nav>
-  
+
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
+    <div class="hero-map-bg"></div>
     <div class="hero-content">
-      <div class="hero-badge">Launching Soon &mdash; UK Property</div>
-      <h1>The smarter way to let.<br>The easier way to <em>rent.</em></h1>
-      <p class="hero-strapline">
-        <strong>Let by Me is an AI-powered platform connecting landlords and tenants directly.</strong><br>
-        No inflated agent fees. No outdated portals. Just honest, intelligent lettings &mdash; built for the way people actually rent today.
+      <div class="hero-left fade-up">
+        <div class="hero-tag">Now Launching Across the UK</div>
+        <h1 class="hero-h1">
+          List your property.<br>
+          <span class="accent">Free for</span><br>
+          2 weeks.
+        </h1>
+        <p class="hero-sub">
+          Let by Me is the honest, AI-powered lettings platform built for UK landlords and tenants.
+          Free to list, zero hidden costs, and no card required to get started.
+        </p>
+        <div class="hero-btns">
+          <a href="#signup" class="btn-primary">List Free — No Card Needed</a>
+          <a href="#signup" class="btn-outline">Find a Property</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">FREE</div>
+            <div class="hero-stat-label">2 Week Listing</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">£29.99</div>
+            <div class="hero-stat-label">8 Weeks Advertised</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">£0</div>
+            <div class="hero-stat-label">Hidden Costs</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signup Card -->
+      <div class="hero-card fade-up" style="transition-delay:0.15s">
+        <div class="hero-card-title">Start For Free</div>
+        <div class="hero-card-sub">No card required. <span>Free 2-week listing, always.</span></div>
+        <div class="form-select-row">
+          <button class="type-btn active" onclick="selectType(this, 'LANDLORD')">🏠 Landlord</button>
+          <button class="type-btn" onclick="selectType(this, 'TENANT')">🔑 Tenant</button>
+        </div>
+        <form action="https://letbyme.us11.list-manage.com/subscribe/post?u=66b2dc0cd693e0d982a9acf8d&amp;id=004bebe1f0" method="post" target="_blank" novalidate>
+          <div class="form-group">
+            <input type="text" name="FNAME" placeholder="First name" />
+          </div>
+          <div class="form-group">
+            <input type="email" name="EMAIL" placeholder="Email address" required />
+          </div>
+          <input type="hidden" name="USERTYPE" id="usertype-field" value="LANDLORD" />
+          <div style="position:absolute;left:-5000px" aria-hidden="true">
+            <input type="text" name="b_66b2dc0cd693e0d982a9acf8d_004bebe1f0" tabindex="-1" value="" />
+          </div>
+          <button type="submit" class="form-submit">Get Early Access — It's Free →</button>
+        </form>
+        <p class="form-privacy">No spam. No agent fees. No card required. Just early access.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      Free 2 Week Listing
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      No Card Required
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      Zero Hidden Costs
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+      </svg>
+      AI-Powered Matching
+    </div>
+  </div>
+
+  <!-- WHY US -->
+  <section class="why-section">
+    <div class="section-inner">
+      <span class="section-label fade-up">Why Let by Me</span>
+      <h2 class="section-h2 fade-up">The property market<br>is broken. We're fixing it.</h2>
+      <p class="section-lead fade-up">Traditional letting agents charge landlords up to 15% and leave tenants drowning in admin fees. There is a better way — and it starts free.</p>
+      <div class="why-grid">
+        <div class="why-card fade-up">
+          <div class="why-icon">🆓</div>
+          <div class="why-card-title">Free to List</div>
+          <div class="why-card-text">Get your property live for two full weeks completely free. No card details, no trial period nonsense — just genuine no-cost advertising.</div>
+          <span class="why-card-tag">No Card Required</span>
+        </div>
+        <div class="why-card fade-up" style="transition-delay:0.1s">
+          <div class="why-icon">📣</div>
+          <div class="why-card-title">£29.99 Boosted Reach</div>
+          <div class="why-card-text">Want more eyes on your property? One flat fee gets you 8 weeks of targeted advertising across social media and Google Ads. That's it.</div>
+          <span class="why-card-tag">8 Weeks Advertised</span>
+        </div>
+        <div class="why-card fade-up" style="transition-delay:0.2s">
+          <div class="why-icon">🤖</div>
+          <div class="why-card-title">AI Tenant Matching</div>
+          <div class="why-card-text">Our platform matches your property to the right tenants faster and more accurately than any high street agent — without the fee.</div>
+          <span class="why-card-tag">Powered by AI</span>
+        </div>
+        <div class="why-card fade-up" style="transition-delay:0.3s">
+          <div class="why-icon">💷</div>
+          <div class="why-card-title">Zero Hidden Costs</div>
+          <div class="why-card-text">What you see is what you pay. Free listing or £29.99 boosted. There are no renewal fees, no percentage cuts, and no small print surprises.</div>
+          <span class="why-card-tag">Totally Transparent</span>
+        </div>
+        <div class="why-card fade-up" style="transition-delay:0.4s">
+          <div class="why-icon">🔍</div>
+          <div class="why-card-title">Verified Tenants Only</div>
+          <div class="why-card-text">Every applicant is verified. Review employment, references, and credit history before you even consider booking a viewing.</div>
+          <span class="why-card-tag">Verified</span>
+        </div>
+        <div class="why-card fade-up" style="transition-delay:0.5s">
+          <div class="why-icon">📱</div>
+          <div class="why-card-title">Manage Everything Online</div>
+          <div class="why-card-text">Tenancy agreements, maintenance requests, rent tracking — all in one place, on your phone or laptop, any time you need it.</div>
+          <span class="why-card-tag">All in One Place</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-inner">
+      <span class="section-label fade-up">Simple Process</span>
+      <h2 class="section-h2 fade-up">How it works</h2>
+      <p class="section-lead fade-up">Simple, clear, and no hidden costs. Here's how you get started in minutes.</p>
+      <div class="how-tabs">
+        <button class="how-tab active" onclick="switchTab(this, 'landlord')">For Landlords</button>
+        <button class="how-tab" onclick="switchTab(this, 'tenant')">For Tenants</button>
+      </div>
+      <div id="steps-landlord" class="how-steps">
+        <div class="how-step fade-up">
+          <div class="how-step-num">1</div>
+          <div class="how-step-title">Choose Your Package</div>
+          <div class="how-step-text">Start free with Online Now — 2 weeks, no card. Or choose Agent Now for £29.99 and get 8 weeks of paid advertising included.</div>
+        </div>
+        <div class="how-step fade-up" style="transition-delay:0.1s">
+          <div class="how-step-num">2</div>
+          <div class="how-step-title">List Your Property</div>
+          <div class="how-step-text">Upload photos, add your details, set your price. Our AI helps write a listing that actually gets responses.</div>
+        </div>
+        <div class="how-step fade-up" style="transition-delay:0.2s">
+          <div class="how-step-num">3</div>
+          <div class="how-step-title">Review Tenants</div>
+          <div class="how-step-text">We match and verify applicants so you only see qualified, serious tenants — no timewasters, no hassle.</div>
+        </div>
+        <div class="how-step fade-up" style="transition-delay:0.3s">
+          <div class="how-step-num">4</div>
+          <div class="how-step-title">Move Them In</div>
+          <div class="how-step-text">Digital tenancy agreements, deposit collection, move-in docs — all sorted through the platform.</div>
+        </div>
+      </div>
+      <div id="steps-tenant" class="how-steps" style="display:none">
+        <div class="how-step fade-up">
+          <div class="how-step-num">1</div>
+          <div class="how-step-title">Create Your Profile</div>
+          <div class="how-step-text">Tell us about yourself and what you're looking for. Takes under five minutes and it's completely free.</div>
+        </div>
+        <div class="how-step fade-up" style="transition-delay:0.1s">
+          <div class="how-step-num">2</div>
+          <div class="how-step-title">Get Matched</div>
+          <div class="how-step-text">Our AI finds properties that genuinely suit your needs — not just anything available in your postcode.</div>
+        </div>
+        <div class="how-step fade-up" style="transition-delay:0.2s">
+          <div class="how-step-num">3</div>
+          <div class="how-step-title">Book a Viewing</div>
+          <div class="how-step-text">Request viewings directly through the platform. No chasing agents, no playing phone tag.</div>
+        </div>
+        <div class="how-step fade-up" style="transition-delay:0.3s">
+          <div class="how-step-num">4</div>
+          <div class="how-step-title">Sign & Move In</div>
+          <div class="how-step-text">Digital contracts, clear costs, zero surprises. You know exactly what you're paying before you sign anything.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section">
+    <div class="section-inner">
+      <span class="section-label fade-up">Pricing</span>
+      <h2 class="section-h2 fade-up">Two packages.<br>Both honest.</h2>
+      <p class="section-lead fade-up">No percentage cuts. No add-ons you didn't ask for. Just two clear options — one of which is completely free.</p>
+      <div class="pricing-grid">
+
+        <div class="pricing-card fade-up">
+          <div class="pricing-badge">Free — No Card Required</div>
+          <div class="pricing-title">Online Now</div>
+          <div class="pricing-price">FREE</div>
+          <div class="pricing-period">2 week listing — zero upfront cost</div>
+          <div class="pricing-desc">Get your property live and in front of verified tenants completely free. No card details, no catch, no commitment.</div>
+          <ul class="pricing-features">
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Listed on Let by Me platform</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> AI-powered tenant matching</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Verified tenant profiles</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Digital tenancy agreements</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Zero hidden costs</li>
+          </ul>
+          <a href="#signup" class="pricing-btn">List For Free →</a>
+        </div>
+
+        <div class="pricing-card featured fade-up" style="transition-delay:0.15s">
+          <div class="pricing-badge">Maximum Exposure</div>
+          <div class="pricing-title">Agent Now</div>
+          <div class="pricing-price"><sup>£</sup>29<span style="font-size:1.6rem;font-weight:900">.99</span></div>
+          <div class="pricing-period">one-off fee — 8 weeks advertising</div>
+          <div class="pricing-desc">One flat fee gets your property 8 weeks of targeted ads across social media and Google. More reach, more tenants, no surprises.</div>
+          <ul class="pricing-features">
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Everything in Online Now</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> 8 weeks social media ads</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Google Ads placement</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Wider verified tenant reach</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> One flat fee — nothing more</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Zero hidden costs</li>
+          </ul>
+          <a href="#signup" class="pricing-btn">Get Started — £29.99 →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNUP -->
+  <section class="signup-section" id="signup">
+    <div class="signup-inner">
+      <span class="section-label fade-up">Join the Waitlist</span>
+      <h2 class="section-h2 fade-up">Be first through the door.</h2>
+      <p class="section-lead fade-up">We're launching soon. Join now for early access, and a platform that's genuinely on your side — starting completely free.</p>
+      <div class="signup-tabs">
+        <button class="signup-tab active" onclick="setSignupType(this, 'LANDLORD')">I'm a Landlord</button>
+        <button class="signup-tab" onclick="setSignupType(this, 'TENANT')">I'm a Tenant</button>
+      </div>
+      <form class="mc-form" action="https://letbyme.us11.list-manage.com/subscribe/post?u=66b2dc0cd693e0d982a9acf8d&amp;id=004bebe1f0" method="post" target="_blank" novalidate>
+        <input type="hidden" name="USERTYPE" id="signup-usertype" value="LANDLORD" />
+        <div style="position:absolute;left:-5000px" aria-hidden="true">
+          <input type="text" name="b_66b2dc0cd693e0d982a9acf8d_004bebe1f0" tabindex="-1" value="" />
+        </div>
+        <input type="email" name="EMAIL" placeholder="Your email address" required />
+        <button type="submit" name="subscribe">Join Free →</button>
+      </form>
+      <p class="signup-note">
+        No spam. No card. Just early access to a fairer way to let property.<br>
+        <a href="mailto:hello@letbyme.com" style="color:rgba(255,255,255,0.35);text-decoration:none;">hello@letbyme.com</a>
       </p>
-      <div class="hero-ai-note">
-        &#127968; <span>AI-powered matching</span> &mdash; putting the right tenants in front of the right properties
-      </div>
-      <form class="signup-form" action="https://letbyme.us11.list-manage.com/subscribe/post?u=66b2dc0cd693e0d982a9acf8d&id=004bebe1f0" method="post" target="_blank">
-        <input type="email" name="EMAIL" placeholder="Your email address" required>
-        <select name="ROLE">
-          <option value="" disabled selected>Are you a landlord or tenant?</option>
-          <option value="landlord">Landlord &mdash; I want to list a property</option>
-          <option value="tenant">Tenant &mdash; I'm looking for a home</option>
-        </select>
-        <button type="submit" class="signup-btn">Be First to Know</button>
-      </form>
-      <p class="form-note">No spam. No data selling. <span>Just a heads up when we go live.</span></p>
     </div>
   </section>
-  
-  <div class="stats-bar">
-    <div class="stat"><div class="stat-number">FREE</div><div class="stat-label">To List</div></div>
-    <div class="stat"><div class="stat-number">2</div><div class="stat-label">Week Free Listing</div></div>
-    <div class="stat"><div class="stat-number">£29.99</div><div class="stat-label">Advertised 8 Weeks</div></div>
-    <div class="stat"><div class="stat-number">ZERO</div><div class="stat-label">Hidden Costs</div></div>
-  </div>
-  
-  <section class="problem">
-    <div class="problem-inner">
-      <div>
-        <span class="section-tag">Why we built this</span>
-        <h2>Letting shouldn't be this complicated. <span>Or this expensive.</span></h2>
-        <p>Landlords deserve a straightforward, cost-effective way to find great tenants. Tenants deserve to find genuine properties without jumping through hoops. The current system serves neither particularly well.</p>
-        <p>Let by Me changes that. Powered by AI, built on transparency, and designed to be genuinely simple &mdash; for everyone.</p>
-      </div>
-      <div class="problem-image">
-        <img src="" alt="Opening doors to landlords and tenants">
-      </div>
-    </div>
-  </section>
-  
-  <div class="ai-strip">
-    <div class="ai-strip-inner">
-      <h2>Not just a listings portal. An intelligent platform <span>bringing Landlords and Tenants Together.</span></h2>
-      <p>While others simply list properties, Let by Me learns. Our AI matches tenants to the right properties, helps landlords write better listings, suggests accurate pricing, and automates promotion &mdash; so the right people find each other faster.</p>
-      <div class="ai-pills">
-        <div class="ai-pill">&#127968; AI Tenant Matching</div>
-        <div class="ai-pill">&#127968; Smart Listing Assistant</div>
-        <div class="ai-pill">&#127968; Automated Social Promotion</div>
-        <div class="ai-pill">&#127968; Intelligent Price Guidance</div>
-        <div class="ai-pill">&#127968; Secure Direct Messaging</div>
-      </div>
-    </div>
-  </div>
-  
-  <section class="packages">
-    <div class="packages-inner">
-      <div class="packages-header">
-        <span class="section-tag" style="display:block;text-align:center;margin-bottom:14px;">Simple. Honest. Transparent.</span>
-        <h2>Two packages.<br><span>No hidden extras.</span></h2>
-        <p>Landlords list free for two weeks. Need more reach? Upgrade for £29.99 and we'll advertise your property for 8 weeks across social media and Google Ads.</p>
-      </div>
-      <div class="packages-grid">
-        <div class="pkg">
-          <div class="pkg-ribbon">Free at Launch</div>
-          <div class="pkg-name">Online Now</div>
-          <div class="pkg-price">FREE</div>
-          <div class="pkg-price-note">Two weeks &mdash; no card required</div>
-          <ul class="pkg-features">
-            <li>Full listing on the Let by Me portal</li>
-            <li>Reach thousands of registered tenants</li>
-            <li>Secure direct messaging with tenants</li>
-            <li>AI-assisted listing description</li>
-            <li>No renewal fees. No hidden costs. Ever.</li>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-text">Let by <span>Me</span></div>
+          <p class="footer-tagline">An honest, AI-powered lettings platform for UK landlords and tenants. Free to list. Zero hidden costs. No games.</p>
+          <a href="mailto:hello@letbyme.com" class="footer-email">hello@letbyme.com</a>
+        </div>
+        <div>
+          <div class="footer-col-title">Landlords</div>
+          <ul class="footer-links">
+            <li><a href="#signup">List a Property</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#how">How it Works</a></li>
+            <li><a href="#signup">Get Early Access</a></li>
           </ul>
         </div>
-        <div class="pkg">
-          <div class="pkg-name">Agent Now</div>
-          <div class="pkg-price">£29.99</div>
-          <div class="pkg-price-note">One-off payment &mdash; 8 weeks advertised</div>
-          <ul class="pkg-features">
-            <li>Everything in Online Now</li>
-            <li>Advertised for 8 weeks not just 2</li>
-            <li>Promoted across our social media channels</li>
-            <li>Featured in targeted Google Ads campaigns</li>
-            <li>Renew at the same flat rate if not let</li>
+        <div>
+          <div class="footer-col-title">Tenants</div>
+          <ul class="footer-links">
+            <li><a href="#signup">Find a Property</a></li>
+            <li><a href="#signup">Create Profile</a></li>
+            <li><a href="#how">How it Works</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@letbyme.com">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <section class="how">
-    <div class="how-inner">
-      <div class="how-header">
-        <h2>How It Works</h2>
-        <p>Four simple steps. Your property in front of the right tenants.</p>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <img class="step-img" src="" alt="Step 1">
-          <h3>Create Your Account</h3>
-          <p>Sign up in minutes. No credit card. No commitment required.</p>
-        </div>
-        <div class="step">
-          <img class="step-img" src="" alt="Step 2">
-          <h3>List Your Property</h3>
-          <p>Add photos and details. Our AI assistant helps write your listing.</p>
-        </div>
-        <div class="step">
-          <img class="step-img" src="" alt="Step 3">
-          <h3>Connect With Tenants</h3>
-          <p>Tenants message you directly through our secure private platform.</p>
-        </div>
-        <div class="step">
-          <img class="step-img" src="" alt="Step 4">
-          <h3>Let Your Property</h3>
-          <p>Agree terms and you're done. No agent. No middleman. Just results.</p>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Let by Me Ltd. Registered in England & Wales.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <section class="launch" id="register">
-    <div class="launch-inner">
-      <h2>Be first through<br>the <span>door.</span></h2>
-      <p class="launch-intro">We're launching soon. Register today and you'll be the first to know &mdash; and the first to list for free when we go live.</p>
-      <div class="launch-offer">
-        <span class="launch-offer-tag">Launch Offer</span>
-        <h3>Your first listing free for two weeks.<br>No card required. No catch.</h3>
-        <p>If your property doesn't let in two weeks, upgrade to Agent Now for just £29.99 and we'll promote it across social media and Google Ads for a full 8 weeks.</p>
-      </div>
-      <form class="signup-form" action="https://letbyme.us11.list-manage.com/subscribe/post?u=66b2dc0cd693e0d982a9acf8d&id=004bebe1f0" method="post" target="_blank">
-        <input type="email" name="EMAIL" placeholder="Your email address" required>
-        <select name="ROLE">
-          <option value="" disabled selected>Are you a landlord or tenant?</option>
-          <option value="landlord">Landlord &mdash; I want to list a property</option>
-          <option value="tenant">Tenant &mdash; I'm looking for a home</option>
-        </select>
-        <button type="submit" class="signup-btn">Register My Interest</button>
-      </form>
-      <p class="form-note" style="margin-top:14px;">No spam. No selling your data. Just a heads up when we go live.</p>
-    </div>
-  </section>
-  
-  <footer class="footer">
-    <img class="footer-logo" src="" alt="Let by Me">
-    <div class="footer-copy">
-      &copy; 2025 Let by Me &nbsp;&middot;&nbsp; Opening Doors To Landlords &amp; Tenants &nbsp;&middot;&nbsp; Built in the UK<br>
-      <span style="font-size:11px;opacity:0.6;">AI-powered online lettings &nbsp;&middot;&nbsp; Online letting made easy</span>
     </div>
   </footer>
-  
-  </body>
-  </html>
+
+  <script>
+    function selectType(btn, type) {
+      document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('usertype-field').value = type;
+    }
+
+    function switchTab(btn, tab) {
+      document.querySelectorAll('.how-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('steps-landlord').style.display = tab === 'landlord' ? 'grid' : 'none';
+      document.getElementById('steps-tenant').style.display = tab === 'tenant' ? 'grid' : 'none';
+    }
+
+    function setSignupType(btn, type) {
+      document.querySelectorAll('.signup-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('signup-usertype').value = type;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    setTimeout(() => {
+      document.querySelectorAll('.hero .fade-up').forEach(el => el.classList.add('visible'));
+    }, 100);
+  </script>
+
+</body>
+</html>

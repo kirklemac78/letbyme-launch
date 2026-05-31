@@ -4,103 +4,110 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Let by Me — Launching Soon</title>
-<meta name="description" content="No agents. No hidden fees. List your UK rental property free for two weeks. Let by Me is launching soon.">
+<meta name="description" content="No agents. No hidden fees. AI-powered lettings platform launching soon. List your UK rental property free for two weeks.">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --yellow: #ffcd21;
-  --dark: #1a1a1a;
-  --white: #ffffff;
-  --font: "Trebuchet MS", Arial, sans-serif;
-}
+:root { --yellow: #ffcd21; --dark: #1a1a1a; --white: #ffffff; --font: "Trebuchet MS", Arial, sans-serif; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font); color: var(--white); background: var(--dark); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,26,26,0.96); backdrop-filter: blur(10px); border-bottom: 3px solid var(--yellow); padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { height: 42px; width: auto; display: block; filter: brightness(0) invert(1); }
-.nav-cta { background: var(--yellow); color: var(--dark); font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 11px 24px; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+.nav-logo { height: 44px; width: auto; display: block; }
+.nav-cta { background: var(--yellow); color: var(--dark); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 11px 24px; text-decoration: none; transition: background 0.2s; white-space: nowrap; }
 .nav-cta:hover { background: #e0b800; }
-.hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; padding-top: 70px; }
-.hero-bg { position: absolute; inset: 0; background-image: url("MAPIMAGEHERE"); background-size: cover; background-position: center; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,26,26,0.88) 0%, rgba(26,26,26,0.65) 50%, rgba(26,26,26,0.45) 100%); }
-.hero-content { position: relative; z-index: 2; padding: 60px 32px 80px; max-width: 680px; }
-.hero-badge { display: inline-block; background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 7px 16px; margin-bottom: 32px; }
-.hero h1 { font-size: clamp(38px, 6vw, 68px); font-weight: 800; line-height: 1.05; color: var(--white); margin-bottom: 12px; }
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding-top: 70px; text-align: center; }
+.hero-bg { position: absolute; inset: 0; background-image: url("map.jpg"); background-size: cover; background-position: center; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,26,26,0.82) 0%, rgba(26,26,26,0.72) 50%, rgba(26,26,26,0.92) 100%); }
+.hero-content { position: relative; z-index: 2; padding: 60px 32px 80px; max-width: 760px; margin: 0 auto; }
+.hero-badge { display: inline-block; background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; padding: 7px 18px; margin-bottom: 32px; }
+.hero h1 { font-size: clamp(40px, 7vw, 72px); font-weight: 900; line-height: 1.05; color: var(--white); margin-bottom: 20px; }
 .hero h1 em { color: var(--yellow); font-style: normal; }
-.hero-strapline { font-size: clamp(16px, 2.5vw, 21px); color: rgba(255,255,255,0.75); line-height: 1.6; margin-bottom: 40px; max-width: 520px; }
-.hero-strapline strong { color: var(--white); font-weight: 700; }
-.signup-form { display: flex; flex-direction: column; gap: 10px; max-width: 460px; margin-bottom: 18px; }
+.hero-strapline { font-size: clamp(16px, 2.5vw, 20px); color: rgba(255,255,255,0.78); line-height: 1.7; margin-bottom: 16px; max-width: 580px; margin-left: auto; margin-right: auto; }
+.hero-strapline strong { color: var(--white); }
+.hero-ai-note { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,205,33,0.12); border: 1px solid rgba(255,205,33,0.3); padding: 8px 18px; margin-bottom: 36px; font-size: 13px; color: rgba(255,255,255,0.7); }
+.hero-ai-note span { color: var(--yellow); font-weight: 700; }
+.signup-form { display: flex; flex-direction: column; gap: 10px; max-width: 480px; margin: 0 auto 16px; }
 .signup-form input[type="email"] { height: 56px; border: none; background: rgba(255,255,255,0.95); padding: 0 20px; font-family: var(--font); font-size: 15px; color: var(--dark); outline: none; width: 100%; }
 .signup-form input[type="email"]:focus { background: #fff; outline: 3px solid var(--yellow); }
 .signup-form input[type="email"]::placeholder { color: #999; }
 .signup-form select { height: 56px; border: none; background: rgba(255,255,255,0.95); padding: 0 20px; font-family: var(--font); font-size: 15px; color: var(--dark); -webkit-appearance: none; cursor: pointer; width: 100%; outline: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23ffcd21' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 18px center; background-color: rgba(255,255,255,0.95); }
-.signup-btn { height: 56px; background: var(--yellow); color: var(--dark); font-family: var(--font); font-size: 15px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; width: 100%; }
+.signup-btn { height: 56px; background: var(--yellow); color: var(--dark); font-family: var(--font); font-size: 15px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; width: 100%; }
 .signup-btn:hover { background: #e0b800; }
-.form-note { font-size: 12px; color: rgba(255,255,255,0.4); }
+.form-note { font-size: 12px; color: rgba(255,255,255,0.35); text-align: center; }
 .form-note span { color: var(--yellow); }
-.stats-bar { background: var(--yellow); padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
-.stat { text-align: center; padding: 28px 20px; border-right: 1px solid rgba(0,0,0,0.12); }
+.stats-bar { background: var(--yellow); display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat { text-align: center; padding: 28px 16px; border-right: 1px solid rgba(0,0,0,0.12); }
 .stat:last-child { border-right: none; }
-.stat-number { font-size: clamp(22px, 3vw, 38px); font-weight: 900; color: var(--dark); line-height: 1; margin-bottom: 6px; }
-.stat-label { font-size: 12px; font-weight: 700; color: rgba(0,0,0,0.55); letter-spacing: 1px; text-transform: uppercase; }
+.stat-number { font-size: clamp(20px, 3vw, 36px); font-weight: 900; color: var(--dark); line-height: 1; margin-bottom: 6px; }
+.stat-label { font-size: 11px; font-weight: 700; color: rgba(0,0,0,0.55); letter-spacing: 1px; text-transform: uppercase; }
 .problem { background: var(--dark); padding: 90px 32px; }
-.problem-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.section-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--yellow); margin-bottom: 20px; display: block; }
-.problem h2 { font-size: clamp(28px, 4vw, 46px); font-weight: 800; line-height: 1.15; color: var(--white); margin-bottom: 24px; }
+.problem-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.section-tag { font-size: 11px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--yellow); margin-bottom: 20px; display: block; }
+.problem h2 { font-size: clamp(26px, 4vw, 44px); font-weight: 900; line-height: 1.15; color: var(--white); margin-bottom: 24px; }
 .problem h2 span { color: var(--yellow); }
 .problem p { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.9; margin-bottom: 16px; }
-.problem-image img { width: 100%; height: 360px; object-fit: cover; display: block; opacity: 0.85; }
+.problem-image img { width: 100%; height: 380px; object-fit: cover; display: block; }
+.ai-strip { background: #0d0d0d; padding: 48px 32px; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+.ai-strip-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.ai-strip h2 { font-size: clamp(22px, 3.5vw, 36px); font-weight: 900; color: var(--white); margin-bottom: 16px; }
+.ai-strip h2 span { color: var(--yellow); }
+.ai-strip p { font-size: 17px; color: rgba(255,255,255,0.5); max-width: 640px; margin: 0 auto; line-height: 1.8; }
+.ai-pills { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+.ai-pill { background: rgba(255,205,33,0.1); border: 1px solid rgba(255,205,33,0.25); color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600; padding: 8px 20px; letter-spacing: 0.5px; }
 .packages { background: #0f0f0f; padding: 90px 32px; }
-.packages-inner { max-width: 860px; margin: 0 auto; }
-.packages-header { text-align: center; margin-bottom: 60px; }
-.packages-header h2 { font-size: clamp(28px, 4vw, 46px); font-weight: 800; color: var(--white); margin-bottom: 14px; line-height: 1.15; }
+.packages-inner { max-width: 880px; margin: 0 auto; }
+.packages-header { text-align: center; margin-bottom: 56px; }
+.packages-header h2 { font-size: clamp(26px, 4vw, 44px); font-weight: 900; color: var(--white); margin-bottom: 14px; line-height: 1.15; }
 .packages-header h2 span { color: var(--yellow); }
-.packages-header p { font-size: 17px; color: rgba(255,255,255,0.5); max-width: 500px; margin: 0 auto; }
-.packages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: #333; }
-.pkg { background: #1a1a1a; padding: 48px 36px 40px; text-align: center; position: relative; }
-.pkg-ribbon { position: absolute; top: 0; left: 50%; transform: translateX(-50%); background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 6px 20px; white-space: nowrap; }
-.pkg-name { font-size: 12px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--yellow); margin-bottom: 20px; margin-top: 28px; }
-.pkg-price { font-size: 72px; font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 6px; letter-spacing: -2px; }
-.pkg-price-note { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 36px; letter-spacing: 0.5px; }
+.packages-header p { font-size: 17px; color: rgba(255,255,255,0.45); max-width: 480px; margin: 0 auto; }
+.packages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: #2a2a2a; }
+.pkg { background: #1a1a1a; padding: 48px 36px 44px; text-align: center; position: relative; }
+.pkg-ribbon { position: absolute; top: 0; left: 50%; transform: translateX(-50%); background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; padding: 6px 20px; white-space: nowrap; }
+.pkg-name { font-size: 11px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; color: var(--yellow); margin-bottom: 20px; margin-top: 30px; }
+.pkg-price { font-size: 76px; font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 8px; letter-spacing: -2px; }
+.pkg-price-note { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 36px; }
 .pkg-features { list-style: none; text-align: left; }
 .pkg-features li { font-size: 14px; color: rgba(255,255,255,0.7); padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: flex-start; gap: 12px; line-height: 1.5; }
 .pkg-features li:last-child { border-bottom: none; }
-.pkg-features li::before { content: '✓'; color: var(--yellow); font-weight: 900; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.pkg-features li::before { content: '✓'; color: var(--yellow); font-weight: 900; font-size: 15px; flex-shrink: 0; margin-top: 1px; }
 .how { background: var(--yellow); padding: 90px 32px; }
-.how-inner { max-width: 960px; margin: 0 auto; }
+.how-inner { max-width: 980px; margin: 0 auto; }
 .how-header { text-align: center; margin-bottom: 60px; }
-.how-header h2 { font-size: clamp(28px, 4vw, 46px); font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+.how-header h2 { font-size: clamp(26px, 4vw, 44px); font-weight: 900; color: var(--dark); margin-bottom: 12px; }
 .how-header p { font-size: 17px; color: rgba(0,0,0,0.55); }
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
 .step { text-align: center; }
 .step-img { width: 130px; height: 130px; margin: 0 auto 20px; display: block; }
-.step h3 { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 10px; line-height: 1.3; }
+.step h3 { font-size: 16px; font-weight: 800; color: var(--dark); margin-bottom: 10px; line-height: 1.3; }
 .step p { font-size: 14px; color: rgba(0,0,0,0.6); line-height: 1.7; }
-.launch { background: var(--dark); padding: 90px 32px; border-top: 3px solid var(--yellow); }
-.launch-inner { max-width: 620px; margin: 0 auto; text-align: center; }
-.launch h2 { font-size: clamp(30px, 5vw, 52px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 16px; }
+.launch { background: var(--dark); padding: 90px 32px; border-top: 3px solid var(--yellow); text-align: center; }
+.launch-inner { max-width: 640px; margin: 0 auto; }
+.launch h2 { font-size: clamp(30px, 5vw, 54px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 16px; }
 .launch h2 span { color: var(--yellow); }
-.launch-intro { font-size: 17px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 40px; }
+.launch-intro { font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 40px; }
 .launch-offer { background: #111; border: 2px solid var(--yellow); padding: 36px 32px; margin-bottom: 40px; text-align: left; }
-.launch-offer-tag { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; display: block; }
-.launch-offer h3 { font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 12px; line-height: 1.3; }
+.launch-offer-tag { font-size: 11px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; display: block; }
+.launch-offer h3 { font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 12px; line-height: 1.3; }
 .launch-offer p { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7; }
-.footer { background: #0a0a0a; padding: 40px 32px; text-align: center; border-top: 1px solid #222; }
-.footer-logo { height: 36px; width: auto; margin-bottom: 16px; display: inline-block; filter: brightness(0) invert(1); }
-.footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); line-height: 1.8; }
+.footer { background: #0a0a0a; padding: 40px 32px; text-align: center; border-top: 1px solid #1a1a1a; }
+.footer-logo { height: 38px; width: auto; margin-bottom: 18px; display: inline-block; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); line-height: 2; }
 @media (max-width: 768px) {
   .nav { padding: 12px 20px; }
+  .nav-logo { height: 36px; }
   .hero-content { padding: 40px 20px 60px; }
   .stats-bar { grid-template-columns: 1fr 1fr; }
-  .stat { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.12); }
+  .stat { border-bottom: 1px solid rgba(0,0,0,0.12); }
   .stat:nth-child(odd) { border-right: 1px solid rgba(0,0,0,0.12); }
+  .stat:nth-child(even) { border-right: none; }
   .problem-inner { grid-template-columns: 1fr; gap: 40px; }
-  .problem-image img { height: 240px; }
+  .problem-image img { height: 260px; }
   .packages-grid { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .steps { grid-template-columns: 1fr 1fr; gap: 20px; }
   .step-img { width: 100px; height: 100px; }
-  .pkg { padding: 40px 24px; }
-  .pkg-price { font-size: 56px; }
-  .problem, .packages, .how, .launch { padding: 60px 20px; }
+  .pkg { padding: 44px 22px; }
+  .pkg-price { font-size: 60px; }
+  .problem, .packages, .how, .launch, .ai-strip { padding: 60px 20px; }
+  .ai-pills { gap: 8px; }
 }
 </style>
 </head>
@@ -115,11 +122,14 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-badge">Launching Soon &mdash; UK Property</div>
-      <h1>Your next tenant<br>is closer than<br>you <em>think.</em></h1>
+      <h1>Your next tenant<br>is one click <em>away.</em></h1>
       <p class="hero-strapline">
-        <strong>No agent. No upfront fees. No nonsense.</strong><br>
-        List your property free for two weeks and let the right tenant find you &mdash; directly, honestly, and without the usual rubbish.
+        <strong>No agent. No upfront fees. No waiting.</strong><br>
+        Let by Me uses smart technology to connect landlords and tenants directly &mdash; honestly, transparently, and completely free to start.
       </p>
+      <div class="hero-ai-note">
+        ⚡ <span>AI-powered lettings platform</span> &mdash; built for the modern landlord
+      </div>
       <form class="signup-form" action="https://letbyme.us11.list-manage.com/subscribe/post?u=66b2dc0cd693e0d982a9acf8d&id=004bebe1f0" method="post" target="_blank">
         <input type="email" name="EMAIL" placeholder="Your email address" required>
         <select name="ROLE">
@@ -142,11 +152,11 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
   
   <section class="problem">
     <div class="problem-inner">
-      <div class="problem-text">
+      <div>
         <span class="section-tag">The honest truth</span>
-        <h2>The letting industry has been<br><span>overcharging landlords</span><br>for too long.</h2>
+        <h2>The letting industry has been <span>overcharging landlords</span> for too long.</h2>
         <p>Rightmove. Zoopla. High street agents. They charge hundreds &mdash; sometimes thousands &mdash; before a single tenant walks through the door. You pay upfront, wait weeks, and if it doesn't let, you pay again.</p>
-        <p>Let by Me was built because we believe finding a good tenant shouldn't cost you the earth. Transparent pricing, direct communication, and technology that works for you &mdash; not against you.</p>
+        <p>Let by Me was built because we believe finding a great tenant shouldn't cost the earth. Transparent pricing, direct communication, and intelligent technology that genuinely works for you.</p>
       </div>
       <div class="problem-image">
         <img src="tenants-move-2.jpeg" alt="Opening doors to landlords and tenants">
@@ -154,12 +164,26 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
     </div>
   </section>
   
+  <div class="ai-strip">
+    <div class="ai-strip-inner">
+      <h2>Built from the ground up with <span>AI at its core.</span></h2>
+      <p>Let by Me isn't just another listings portal. We're building an intelligent platform that learns, matches, and automates &mdash; so landlords spend less time managing and more time earning.</p>
+      <div class="ai-pills">
+        <div class="ai-pill">⚡ AI Tenant Matching</div>
+        <div class="ai-pill">⚡ Smart Listing Assistant</div>
+        <div class="ai-pill">⚡ Automated Social Promotion</div>
+        <div class="ai-pill">⚡ Intelligent Price Guidance</div>
+        <div class="ai-pill">⚡ Secure Direct Messaging</div>
+      </div>
+    </div>
+  </div>
+  
   <section class="packages">
     <div class="packages-inner">
       <div class="packages-header">
         <span class="section-tag" style="display:block;text-align:center;margin-bottom:14px;">Simple. Honest. Transparent.</span>
-        <h2>Two packages.<br><span>No tricks. No tiers.</span></h2>
-        <p>Start completely free. Upgrade only if you want more reach. That's it.</p>
+        <h2>Two packages.<br><span>No tricks. No small print.</span></h2>
+        <p>Start completely free. Upgrade only if you want more reach.</p>
       </div>
       <div class="packages-grid">
         <div class="pkg">
@@ -171,7 +195,7 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
             <li>Full listing on the Let by Me portal</li>
             <li>Reach thousands of registered tenants</li>
             <li>Secure direct messaging with tenants</li>
-            <li>Live for 2 weeks &mdash; completely free</li>
+            <li>AI-assisted listing description</li>
             <li>No renewal fees. No hidden costs. Ever.</li>
           </ul>
         </div>
@@ -183,8 +207,8 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
             <li>Everything in Online Now</li>
             <li>Advertised for 8 weeks not just 2</li>
             <li>Promoted across our social media channels</li>
-            <li>Featured in targeted Google Ads</li>
-            <li>Renew at the same price if not let</li>
+            <li>Featured in targeted Google Ads campaigns</li>
+            <li>Renew at the same flat rate if not let</li>
           </ul>
         </div>
       </div>
@@ -195,28 +219,28 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
     <div class="how-inner">
       <div class="how-header">
         <h2>How It Works</h2>
-        <p>Simple by design. Four steps and your property is in front of thousands of tenants.</p>
+        <p>Four simple steps. Your property in front of thousands of tenants.</p>
       </div>
       <div class="steps">
         <div class="step">
           <img class="step-img" src="step1.svg" alt="Step 1">
           <h3>Create Your Account</h3>
-          <p>Sign up in under two minutes. No credit card. No commitment. Just your email.</p>
+          <p>Sign up in under two minutes. No credit card. No commitment required.</p>
         </div>
         <div class="step">
           <img class="step-img" src="step2.svg" alt="Step 2">
           <h3>List Your Property</h3>
-          <p>Add your photos, details and asking price. Your listing goes live immediately.</p>
+          <p>Add photos and details. Our AI assistant helps write your listing for you.</p>
         </div>
         <div class="step">
           <img class="step-img" src="step3.svg" alt="Step 3">
-          <h3>Talk to Tenants</h3>
-          <p>Interested tenants contact you directly through our secure messaging platform.</p>
+          <h3>Connect With Tenants</h3>
+          <p>Tenants contact you directly through our secure, private messaging platform.</p>
         </div>
         <div class="step">
           <img class="step-img" src="step4.svg" alt="Step 4">
           <h3>Let Your Property</h3>
-          <p>Agree terms, sign up, done. No agent taking a cut. No awkward middleman.</p>
+          <p>Agree terms and complete the let. No agent fees. No middleman. Just results.</p>
         </div>
       </div>
     </div>
@@ -240,14 +264,15 @@ body { font-family: var(--font); color: var(--white); background: var(--dark); f
         </select>
         <button type="submit" class="signup-btn">Register My Interest</button>
       </form>
-      <p class="form-note" style="margin-top:14px;text-align:center;">No spam. No selling your data. Just a heads up when we go live.</p>
+      <p class="form-note" style="margin-top:14px;">No spam. No selling your data. Just a heads up when we go live.</p>
     </div>
   </section>
   
   <footer class="footer">
     <img class="footer-logo" src="LBM_logo.png" alt="Let by Me">
     <div class="footer-copy">
-      &copy; 2025 Let by Me &nbsp;&middot;&nbsp; Opening Doors To Landlords &amp; Tenants &nbsp;&middot;&nbsp; Built in the UK
+      &copy; 2025 Let by Me &nbsp;&middot;&nbsp; Opening Doors To Landlords &amp; Tenants &nbsp;&middot;&nbsp; Built in the UK<br>
+      <span style="font-size:11px;opacity:0.6;">AI-powered online lettings &nbsp;&middot;&nbsp; Online letting made easy</span>
     </div>
   </footer>
   

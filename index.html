@@ -1248,11 +1248,20 @@
   </footer>
 
   <script>
-    function selectType(btn, type) {
-      document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('usertype-field').value = type;
-    }
+   function selectType(btn, type) {
+  document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('usertype-field').value = type;
+  if (type === 'TENANT') {
+    document.querySelector('.hero-card-title').textContent = 'Instant Viewing Booking';
+    document.querySelector('.hero-card-sub').innerHTML = 'Free to search. <span>Instant Secure chat with Landlords.</span>';
+    document.querySelector('.form-submit').textContent = 'Find a Property — It\'s Free →';
+  } else {
+    document.querySelector('.hero-card-title').textContent = 'Start For Free';
+    document.querySelector('.hero-card-sub').innerHTML = 'No card required. <span>Free 2-week listing, always.</span>';
+    document.querySelector('.form-submit').textContent = 'Get Early Access — It\'s Free →';
+  }
+}
 
     function switchTab(btn, tab) {
       document.querySelectorAll('.how-tab').forEach(b => b.classList.remove('active'));

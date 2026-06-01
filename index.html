@@ -52,11 +52,7 @@
       text-decoration: none;
     }
 
-    .nav-logo-icon {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
-    }
+    .nav-logo-icon { width: 36px; height: 36px; flex-shrink: 0; }
 
     .nav-logo-text {
       font-size: 1.1rem;
@@ -405,7 +401,7 @@
       font-size: 1rem;
       color: rgba(255,255,255,0.6);
       line-height: 1.7;
-      max-width: 520px;
+      max-width: 620px;
       margin-bottom: 60px;
     }
 
@@ -560,58 +556,34 @@
 
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: minmax(300px, 560px);
+      justify-content: center;
       gap: 2px;
       margin-top: 60px;
     }
 
-    /* LEFT CARD — yellow background */
     .pricing-card {
       padding: 48px 40px;
       position: relative;
       display: flex;
       flex-direction: column;
-    }
-
-    .pricing-card.free-card {
       background: var(--yellow);
     }
 
-    .pricing-card.free-card .pricing-title,
-    .pricing-card.free-card .pricing-price,
-    .pricing-card.free-card .pricing-period,
-    .pricing-card.free-card .pricing-desc,
-    .pricing-card.free-card .pricing-feature { color: var(--black); }
+    .pricing-card .pricing-title,
+    .pricing-card .pricing-price,
+    .pricing-card .pricing-period,
+    .pricing-card .pricing-desc,
+    .pricing-card .pricing-feature { color: var(--black); }
 
-    .pricing-card.free-card .pricing-feature-icon { color: var(--black); }
-
-    .pricing-card.free-card .pricing-desc {
-      border-bottom-color: rgba(0,0,0,0.15);
-    }
-
-    .pricing-card.free-card .pricing-period { color: rgba(0,0,0,0.55); }
-
-    /* RIGHT CARD — dark background */
-    .pricing-card.paid-card {
-      background: var(--dark2);
-    }
-
-    .pricing-card.paid-card .pricing-title,
-    .pricing-card.paid-card .pricing-price,
-    .pricing-card.paid-card .pricing-feature { color: var(--white); }
-
-    .pricing-card.paid-card .pricing-period { color: rgba(255,255,255,0.4); }
-
-    .pricing-card.paid-card .pricing-desc {
-      color: rgba(255,255,255,0.5);
-      border-bottom-color: rgba(255,255,255,0.08);
-    }
-
-    .pricing-card.paid-card .pricing-feature { color: rgba(255,255,255,0.8); }
-    .pricing-card.paid-card .pricing-feature-icon { color: var(--yellow); }
+    .pricing-card .pricing-feature-icon { color: var(--black); }
+    .pricing-card .pricing-desc { border-bottom-color: rgba(0,0,0,0.15); }
+    .pricing-card .pricing-period { color: rgba(0,0,0,0.55); }
 
     .pricing-badge {
       display: inline-block;
+      background: var(--black);
+      color: var(--yellow);
       font-size: 0.68rem;
       font-weight: 800;
       letter-spacing: 0.1em;
@@ -620,16 +592,6 @@
       border-radius: 100px;
       margin-bottom: 24px;
       width: fit-content;
-    }
-
-    .free-card .pricing-badge {
-      background: var(--black);
-      color: var(--yellow);
-    }
-
-    .paid-card .pricing-badge {
-      background: var(--yellow);
-      color: var(--black);
     }
 
     .pricing-title {
@@ -666,11 +628,7 @@
       border-bottom: 1px solid;
     }
 
-    .pricing-features {
-      list-style: none;
-      margin-bottom: 36px;
-      flex: 1;
-    }
+    .pricing-features { list-style: none; margin-bottom: 36px; flex: 1; }
 
     .pricing-feature {
       display: flex;
@@ -680,14 +638,8 @@
       padding: 8px 0;
     }
 
-    .pricing-feature-icon {
-      flex-shrink: 0;
-      margin-top: 1px;
-      font-style: normal;
-      font-weight: 700;
-    }
+    .pricing-feature-icon { flex-shrink: 0; margin-top: 1px; font-style: normal; font-weight: 700; }
 
-    /* BUTTONS — aligned at bottom */
     .pricing-btn {
       width: 100%;
       padding: 16px;
@@ -702,24 +654,13 @@
       text-align: center;
       text-decoration: none;
       display: block;
-      margin-top: auto;
-    }
-
-    .free-card .pricing-btn {
       background: var(--black);
       border: none;
       color: var(--yellow);
+      margin-top: auto;
     }
 
-    .free-card .pricing-btn:hover { background: #222; }
-
-    .paid-card .pricing-btn {
-      background: var(--yellow);
-      border: none;
-      color: var(--black);
-    }
-
-    .paid-card .pricing-btn:hover { background: var(--yellow-dark); }
+    .pricing-btn:hover { background: #222; }
 
     /* SIGNUP */
     .signup-section { background: var(--dark); }
@@ -925,7 +866,7 @@
       </svg>
       <span class="nav-logo-text">Let by <span>Me</span></span>
     </a>
-    <a href="#signup" class="nav-cta">List Free Today</a>
+    <a href="#signup" class="nav-cta">List Your Property — Free</a>
   </nav>
 
   <!-- HERO -->
@@ -935,37 +876,35 @@
       <div class="hero-left fade-up">
         <div class="hero-tag">Now Launching Across the UK</div>
         <h1 class="hero-h1">
-          List your property.<br>
-          <span class="accent">Free for</span><br>
-          2 weeks.
+          Find your perfect match.<br>
+          <span class="accent">Without the Catch.</span>
         </h1>
         <p class="hero-sub">
-          Letbyme is the honest AI-powered lettings platform helping Landlords let faster, 
-          save money and stay in control - While giving Tenants a better rental experience.
+          Let by Me is the honest, AI-powered lettings platform helping landlords let faster, save money and stay in control — while giving tenants a better rental experience.
         </p>
         <div class="hero-btns">
-          <a href="#signup" class="btn-primary">List Free — No Card Needed</a>
+          <a href="#signup" class="btn-primary">List Your Property — Free</a>
           <a href="#signup" class="btn-outline">Find a Property</a>
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
             <div class="hero-stat-num">FREE</div>
-            <div class="hero-stat-label">2 Week Listing</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">£29.99</div>
-            <div class="hero-stat-label">8 Weeks Advertised</div>
+            <div class="hero-stat-label">Until It's Let</div>
           </div>
           <div class="hero-stat">
             <div class="hero-stat-num">£0</div>
             <div class="hero-stat-label">Hidden Costs</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">AI</div>
+            <div class="hero-stat-label">Powered Platform</div>
           </div>
         </div>
       </div>
 
       <div class="hero-card fade-up" style="transition-delay:0.15s">
         <div class="hero-card-title">Start For Free</div>
-        <div class="hero-card-sub">No card required. <span>Free 2-week listing, always.</span></div>
+        <div class="hero-card-sub">No card required. <span>Free until your property is let.</span></div>
         <div class="form-select-row">
           <button class="type-btn active" onclick="selectType(this, 'LANDLORD')">🏠 Landlord</button>
           <button class="type-btn" onclick="selectType(this, 'TENANT')">🔑 Tenant</button>
@@ -981,7 +920,7 @@
           <div style="position:absolute;left:-5000px" aria-hidden="true">
             <input type="text" name="b_66b2dc0cd693e0d982a9acf8d_533d3016ee" tabindex="-1" value="" />
           </div>
-          <button type="submit" class="form-submit">Get Early Access — It's Free →</button>
+          <button type="submit" class="form-submit" id="hero-submit-btn">Get Early Access — It's Free →</button>
         </form>
         <p class="form-privacy">No spam. No agent fees. No card required. Just early access.</p>
       </div>
@@ -992,7 +931,7 @@
   <div class="trust-bar">
     <div class="trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      Free 2 Week Listing
+      Free Until Let
     </div>
     <div class="trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -1013,60 +952,60 @@
     <div class="section-inner">
       <span class="section-label fade-up">Why Let by Me</span>
       <h2 class="section-h2 fade-up">The property market<br>is broken. We're fixing it.</h2>
-      <p class="section-lead fade-up">Traditional Letting Agents can charge landlords upto 15% while the rental process remains slow, manual and frustrating for everyone involved. Letbyme offers a Better way - Powered by AI, built for modern Renting, and Free to started.s charge landlords up to 15% and leave tenants drowning in admin fees. There is a better way — and it starts free.</p>
+      <p class="section-lead fade-up">Traditional letting agents can charge landlords up to 15% while the rental process remains slow, manual and frustrating for everyone involved. Let by Me offers a better way — powered by AI, built for modern renting, and free to get started.</p>
       <div class="why-grid">
 
         <div class="why-card fade-up">
           <div class="why-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" stroke="none" fill="#F5C518"/><circle cx="12" cy="12" r="10" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M8 11l4-4 4 4M12 7v10" stroke="#F5C518" stroke-width="1.8" fill="none"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M8 11l4-4 4 4M12 7v10" stroke="#F5C518" stroke-width="1.8" fill="none"/></svg>
           </div>
-          <div class="why-card-title">Free to List</div>
-          <div class="why-card-text">Get your property live for two full weeks completely free. No card details, no trial period nonsense — just genuine no-cost advertising.</div>
-          <span class="why-card-tag">No Card Required</span>
+          <div class="why-card-title">Free Until Let</div>
+          <div class="why-card-text">List your property and keep it live until you find the right tenant. No time limits, no upfront cost, no card required — ever.</div>
+          <span class="why-card-tag">Always Free</span>
         </div>
 
         <div class="why-card fade-up" style="transition-delay:0.1s">
           <div class="why-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z" stroke="#F5C518" stroke-width="1.8" fill="none"/></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" stroke="#F5C518" stroke-width="1.8"/></svg>
           </div>
-          <div class="why-card-title">£29.99 Boosted Reach</div>
-          <div class="why-card-text">Want more eyes on your property? One flat fee gets you 8 weeks of targeted advertising across social media and Google Ads. That's it.</div>
-          <span class="why-card-tag">8 Weeks Advertised</span>
+          <div class="why-card-title">AI Tenant Matching</div>
+          <div class="why-card-text">Our platform intelligently matches your property to verified tenants faster and more accurately than any high street agent — without the fee.</div>
+          <span class="why-card-tag">Powered by AI</span>
         </div>
 
         <div class="why-card fade-up" style="transition-delay:0.2s">
           <div class="why-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" stroke="#F5C518" stroke-width="1.8"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#F5C518" stroke-width="1.8" fill="none"/></svg>
           </div>
-          <div class="why-card-title">AI Smart Tenant Matching</div>
-          <div class="why-card-text">Our platform matches your property to the right tenants faster and more accurately than any high street agent — without the fee.</div>
-          <span class="why-card-tag">Powered by AI</span>
+          <div class="why-card-title">Tenant Trust Scores</div>
+          <div class="why-card-text">Every tenant builds a verified rental history. Landlords see endorsements from previous landlords before accepting a single enquiry — like TripAdvisor for renters.</div>
+          <span class="why-card-tag">Built-in Verification</span>
         </div>
 
         <div class="why-card fade-up" style="transition-delay:0.3s">
           <div class="why-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M2 10h20" stroke="#F5C518" stroke-width="1.8"/><path d="M6 15h4M14 15h4" stroke="#F5C518" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="#F5C518" stroke-width="1.8" fill="none"/></svg>
           </div>
-          <div class="why-card-title">Zero Hidden Costs</div>
-          <div class="why-card-text">What you see is what you pay. Free listing or £29.99 boosted. No renewal fees, no percentage cuts, no small print surprises.</div>
-          <span class="why-card-tag">Totally Transparent</span>
+          <div class="why-card-title">Verified Listings Only</div>
+          <div class="why-card-text">Every property on Let by Me is checked and verified. No scams, no misleading photos, no wasted viewings — just accurate, trustworthy listings.</div>
+          <span class="why-card-tag">Safe & Trusted</span>
         </div>
 
         <div class="why-card fade-up" style="transition-delay:0.4s">
           <div class="why-icon">
-            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="#F5C518" stroke-width="1.8" fill="none"/><circle cx="12" cy="7" r="4" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M16 11l2 2 4-4" stroke="#F5C518" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke="#F5C518" stroke-width="1.8" fill="none"/></svg>
           </div>
-          <div class="why-card-title">Verified Tenants Only</div>
-          <div class="why-card-text">Every applicant is verified. Review employment, references, and credit history before you even consider booking a viewing.</div>
-          <span class="why-card-tag">Verified</span>
+          <div class="why-card-title">AI Listing Assistant</div>
+          <div class="why-card-text">Upload your photos and basic details — our AI writes your listing description, suggests your asking price and flags anything missing before you go live.</div>
+          <span class="why-card-tag">Smart & Effortless</span>
         </div>
 
         <div class="why-card fade-up" style="transition-delay:0.5s">
           <div class="why-icon">
-            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M9 7h6M9 11h6M9 15h4" stroke="#F5C518" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" stroke="#F5C518" stroke-width="1.8" fill="none"/><rect x="14" y="3" width="7" height="7" stroke="#F5C518" stroke-width="1.8" fill="none"/><rect x="3" y="14" width="7" height="7" stroke="#F5C518" stroke-width="1.8" fill="none"/><path d="M14 14h3v3m0 4h4m-4-4v7" stroke="#F5C518" stroke-width="1.8" stroke-linecap="round"/></svg>
           </div>
-          <div class="why-card-title">Manage Everything Online</div>
-          <div class="why-card-text">Tenancy agreements, maintenance requests, rent tracking — all in one place, on your phone or laptop, any time you need it.</div>
+          <div class="why-card-title">One Dashboard. Total Control.</div>
+          <div class="why-card-text">Manage enquiries, schedule viewings, review tenant profiles and track your listing performance — all in one place, from any device.</div>
           <span class="why-card-tag">All in One Place</span>
         </div>
 
@@ -1087,45 +1026,45 @@
       <div id="steps-landlord" class="how-steps">
         <div class="how-step fade-up">
           <div class="how-step-num">1</div>
-          <div class="how-step-title">Choose Your Package</div>
-          <div class="how-step-text">Start free with Online Now — 2 weeks, no card. Or choose Agent Now for £29.99 and get 8 weeks of paid advertising included.</div>
+          <div class="how-step-title">Create Your Free Listing</div>
+          <div class="how-step-text">Sign up, add your property details and photos. Our AI writes your listing description and suggests your asking price automatically.</div>
         </div>
         <div class="how-step fade-up" style="transition-delay:0.1s">
           <div class="how-step-num">2</div>
-          <div class="how-step-title">List Your Property</div>
-          <div class="how-step-text">Upload photos, add your details, set your price. Our AI helps write a listing that actually gets responses.</div>
+          <div class="how-step-title">Get Matched to Tenants</div>
+          <div class="how-step-text">Our AI matches your property to pre-screened, verified tenants. You only see serious enquiries — no timewasters.</div>
         </div>
         <div class="how-step fade-up" style="transition-delay:0.2s">
           <div class="how-step-num">3</div>
-          <div class="how-step-title">Review Tenants</div>
-          <div class="how-step-text">We match and verify applicants so you only see qualified, serious tenants — no timewasters, no hassle.</div>
+          <div class="how-step-title">Review Trust Scores</div>
+          <div class="how-step-text">Every applicant has a verified tenant profile with rental history and endorsements from previous landlords. Choose with confidence.</div>
         </div>
         <div class="how-step fade-up" style="transition-delay:0.3s">
           <div class="how-step-num">4</div>
-          <div class="how-step-title">Move Them In</div>
-          <div class="how-step-text">Digital tenancy agreements, deposit collection, move-in docs — all sorted through the platform.</div>
+          <div class="how-step-title">Let It. Done.</div>
+          <div class="how-step-text">Digital tenancy agreements, move-in docs and everything sorted through the platform. Free until the day it's let.</div>
         </div>
       </div>
       <div id="steps-tenant" class="how-steps" style="display:none">
         <div class="how-step fade-up">
           <div class="how-step-num">1</div>
-          <div class="how-step-title">Create Your Profile</div>
-          <div class="how-step-text">Tell us about yourself and what you're looking for. Takes under five minutes and it's completely free.</div>
+          <div class="how-step-title">Build Your Renter Profile</div>
+          <div class="how-step-text">Create your reusable profile once. Add your employment status, references and rental history — use it to apply anywhere on the platform.</div>
         </div>
         <div class="how-step fade-up" style="transition-delay:0.1s">
           <div class="how-step-num">2</div>
-          <div class="how-step-title">Get Matched</div>
-          <div class="how-step-text">Our AI finds properties that genuinely suit your needs — not just anything available in your postcode.</div>
+          <div class="how-step-title">Browse Verified Properties</div>
+          <div class="how-step-text">Every listing is verified and accurately represented. No scams, no misleading photos, no wasted journeys.</div>
         </div>
         <div class="how-step fade-up" style="transition-delay:0.2s">
           <div class="how-step-num">3</div>
-          <div class="how-step-title">Book a Viewing</div>
-          <div class="how-step-text">Request viewings instsantly through the platform. Direct Contact with Landlords,  No chasing agents, no playing phone tag.</div>
+          <div class="how-step-title">Book Viewings Instantly</div>
+          <div class="how-step-text">Request viewings directly through the platform. No chasing agents, no waiting days for a reply.</div>
         </div>
         <div class="how-step fade-up" style="transition-delay:0.3s">
           <div class="how-step-num">4</div>
-          <div class="how-step-title">Sign & Move In</div>
-          <div class="how-step-text">Digital contracts, clear costs, zero surprises. You know exactly what you're paying before you sign anything.</div>
+          <div class="how-step-title">Move In with Confidence</div>
+          <div class="how-step-text">Digital contracts, clear terms and real-time application updates. You know exactly where you stand at every step.</div>
         </div>
       </div>
     </div>
@@ -1135,43 +1074,25 @@
   <section class="pricing-section">
     <div class="section-inner">
       <span class="section-label fade-up">Pricing</span>
-      <h2 class="section-h2 fade-up">Two packages.<br>Both honest.</h2>
-      <p class="section-lead fade-up">No percentage cuts. No add-ons you didn't ask for. Just two clear options — one of which is completely free.</p>
+      <h2 class="section-h2 fade-up">Simple. Honest. Free.</h2>
+      <p class="section-lead fade-up">No packages. No percentage cuts. No time pressure. Just one straightforward deal — list for free and only consider it done when it's let.</p>
       <div class="pricing-grid">
-
-        <div class="pricing-card free-card fade-up">
-          <div class="pricing-badge">Free — No Card Required</div>
-          <div class="pricing-title">Online Now</div>
-          <div class="pricing-price">FREE</div>
-          <div class="pricing-period">2 week listing — zero upfront cost</div>
-          <div class="pricing-desc">Get your property live and in front of verified tenants completely free. No card details, no catch, no commitment.</div>
+        <div class="pricing-card fade-up">
+          <div class="pricing-badge">Always Free</div>
+          <div class="pricing-title">Free Until Let</div>
+          <div class="pricing-price">£0</div>
+          <div class="pricing-period">no card required — ever</div>
+          <div class="pricing-desc">List your property completely free. It stays live until you find the right tenant. No time limits, no packages, no catches.</div>
           <ul class="pricing-features">
-            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Listed on Let by Me platform</li>
-            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> AI-powered tenant matching</li>
-            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Verified tenant profiles</li>
-            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Digital tenancy agreements</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Free listing until let</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> AI tenant matching</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Verified tenant profiles & trust scores</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> AI-generated listing description</li>
+            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Smart landlord dashboard</li>
             <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Zero hidden costs</li>
           </ul>
           <a href="#signup" class="pricing-btn">List For Free →</a>
         </div>
-
-        <div class="pricing-card paid-card fade-up" style="transition-delay:0.15s">
-          <div class="pricing-badge">Maximum Exposure</div>
-          <div class="pricing-title">Agent Now</div>
-          <div class="pricing-price"><sup>£</sup>29<span style="font-size:1.6rem;font-weight:900">.99</span></div>
-          <div class="pricing-period">one-off fee — 8 weeks advertising</div>
-          <div class="pricing-desc">One flat fee gets your property 8 weeks of targeted ads across social media and Google. More reach, more tenants, no surprises.</div>
-          <ul class="pricing-features">
-            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Everything in Online Now</li>
-            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> 8 weeks social media ads</li>
-            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Google Ads placement</li>
-            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Wider verified tenant reach</li>
-            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> One flat fee — nothing more</li>
-            <li class="pricing-feature"><em class="pricing-feature-icon">✓</em> Zero hidden costs</li>
-          </ul>
-          <a href="#signup" class="pricing-btn">Get Started — £29.99 →</a>
-        </div>
-
       </div>
     </div>
   </section>
@@ -1181,7 +1102,7 @@
     <div class="signup-inner">
       <span class="section-label fade-up">Join the Waitlist</span>
       <h2 class="section-h2 fade-up">Be first through the door.</h2>
-      <p class="section-lead fade-up">We're launching soon. Join now for early access and a platform that's genuinely on your side — starting completely free.</p>
+      <p class="section-lead fade-up">We're launching soon. Join landlords already on the list and be first to access the UK's fairest letting platform — free until let, no catches.</p>
       <div class="signup-tabs">
         <button class="signup-tab active" onclick="setSignupType(this, 'LANDLORD')">I'm a Landlord</button>
         <button class="signup-tab" onclick="setSignupType(this, 'TENANT')">I'm a Tenant</button>
@@ -1207,14 +1128,13 @@
       <div class="footer-top">
         <div>
           <div class="footer-brand-text">Let by <span>Me</span></div>
-          <p class="footer-tagline">An honest, AI-powered lettings platform for UK landlords and tenants. Free to list. Zero hidden costs. No games.</p>
+          <p class="footer-tagline">Free to list. Free until let. Built for landlords and tenants who deserve better.</p>
           <a href="mailto:hello@letbyme.com" class="footer-email">hello@letbyme.com</a>
         </div>
         <div>
           <div class="footer-col-title">Landlords</div>
           <ul class="footer-links">
             <li><a href="#signup">List a Property</a></li>
-            <li><a href="#pricing">Pricing</a></li>
             <li><a href="#how">How it Works</a></li>
             <li><a href="#signup">Get Early Access</a></li>
           </ul>
@@ -1223,7 +1143,7 @@
           <div class="footer-col-title">Tenants</div>
           <ul class="footer-links">
             <li><a href="#signup">Find a Property</a></li>
-            <li><a href="#signup">Create Profile</a></li>
+            <li><a href="#signup">Build Your Profile</a></li>
             <li><a href="#how">How it Works</a></li>
           </ul>
         </div>
@@ -1237,7 +1157,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2025 Let by Me. Registered in England & Wales.</p>
+        <p class="footer-copy">© 2025 Let by Me Ltd. Registered in England & Wales.</p>
         <div class="footer-legal">
           <a href="#">Privacy</a>
           <a href="#">Terms</a>
@@ -1248,20 +1168,20 @@
   </footer>
 
   <script>
-   function selectType(btn, type) {
-  document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('usertype-field').value = type;
-  if (type === 'TENANT') {
-    document.querySelector('.hero-card-title').textContent = 'The Smarter Way to Rent In The UK';
-    document.querySelector('.hero-card-sub').innerHTML = 'Powered by AI. <span>Built For A Better Teanan Experience</span>';
-    document.querySelector('.form-submit').textContent = 'Register for a better rental experience →';
-  } else {
-    document.querySelector('.hero-card-title').textContent = 'Start For Free';
-    document.querySelector('.hero-card-sub').innerHTML = 'No card required. <span>Free 2-week listing, always.</span>';
-    document.querySelector('.form-submit').textContent = 'Get Early Access — It\'s Free →';
-  }
-}
+    function selectType(btn, type) {
+      document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('usertype-field').value = type;
+      if (type === 'TENANT') {
+        document.querySelector('.hero-card-title').textContent = 'Find Your Perfect Home';
+        document.querySelector('.hero-card-sub').innerHTML = 'Browse verified listings. <span>No scams. No hidden fees.</span>';
+        document.querySelector('#hero-submit-btn').textContent = 'Find a Property — Join Free →';
+      } else {
+        document.querySelector('.hero-card-title').textContent = 'Start For Free';
+        document.querySelector('.hero-card-sub').innerHTML = 'No card required. <span>Free until your property is let.</span>';
+        document.querySelector('#hero-submit-btn').textContent = 'Get Early Access — It\'s Free →';
+      }
+    }
 
     function switchTab(btn, tab) {
       document.querySelectorAll('.how-tab').forEach(b => b.classList.remove('active'));
@@ -1291,3 +1211,4 @@
 
 </body>
 </html>
+  
